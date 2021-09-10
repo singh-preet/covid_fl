@@ -21,9 +21,7 @@ class HomeController extends GetxController {
   void onTabChanged(int index, BuildContext context) {
     this.selectedTabIndex = index;
     if (this.selectedTabIndex == 0) {
-      print(0);
-      showCupertinoModalPopup(
-          context: context, builder: (BuildContext context) => ActionSheet());
+      showCupertinoModalPopup(context: context, builder: (BuildContext context) => ActionSheet());
     } else if (this.selectedTabIndex == 2) {
       Get.to(StaffDirectory());
     } else if (this.selectedTabIndex == 1) {

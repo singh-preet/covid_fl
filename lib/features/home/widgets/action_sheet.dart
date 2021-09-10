@@ -1,3 +1,5 @@
+import 'package:covid_fl/utils/string_constant.dart';
+import 'package:covid_fl/utils/style_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,59 +10,42 @@ class ActionSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoActionSheet(
-      title: Text('What do you want to do?'),
-actions: [
-  CupertinoActionSheetAction(
-    child:  Text('Absent'),
-    onPressed: () {
-    },
-  ),
-  CupertinoActionSheetAction(
-    child: Text('Checkout',
-        style: TextStyle(
-            color: Colors.green, fontWeight: FontWeight.bold))
-    ,
-    onPressed: () {
-
-    },
-  ),
-  CupertinoActionSheetAction(
-    child: Text('Reaching Checkpoint',
-        style: TextStyle(
-            color: Colors.green, fontWeight: FontWeight.bold)),
-    onPressed: () {
-    },
-  ),
-  CupertinoActionSheetAction(
-    child:Text('Leaving Checkpoint',
-        style: TextStyle(
-            color: Colors.green, fontWeight: FontWeight.bold)),
-    onPressed: () {
-
-    },
-  ),
-  CupertinoActionSheetAction(
-    child: Text('At Office')
-    ,
-    onPressed: () {
-    },
-  ),
-  CupertinoActionSheetAction(
-    child:Text('Check in',
-        style: TextStyle(
-            color: Colors.green, fontWeight: FontWeight.bold))
-    ,
-    onPressed: () {
-
-    },
-  )
-],
+        title: Text(StringConstant.SELECT_OPTION),
+        actions: [
+          CupertinoActionSheetAction(
+            child: Text(StringConstant.ABSENT),
+            onPressed: () {},
+          ),
+          CupertinoActionSheetAction(
+            child: Text(StringConstant.CHECKOUT, style: StyleManager.greenBold),
+            onPressed: () {},
+          ),
+          CupertinoActionSheetAction(
+            child: Text(StringConstant.REACHING_CHECKPOINT,
+                style: StyleManager.greenBold),
+            onPressed: () {},
+          ),
+          CupertinoActionSheetAction(
+            child: Text(StringConstant.LEAVING_CHECKPOINT,
+                style: StyleManager.greenBold),
+            onPressed: () {},
+          ),
+          CupertinoActionSheetAction(
+            child: Text(
+              StringConstant.AT_OFFICE,
+            ),
+            onPressed: () {},
+          ),
+          CupertinoActionSheetAction(
+            child: Text(StringConstant.CHECK_IN, style: StyleManager.greenBold),
+            onPressed: () {},
+          )
+        ],
         cancelButton: CupertinoActionSheetAction(
-          child: Text('Cancel'),
+          child: Text(StringConstant.CANCEL),
           onPressed: () {
             Get.back();
           },
-        )
-    );
+        ));
   }
 }

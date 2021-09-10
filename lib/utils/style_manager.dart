@@ -18,4 +18,16 @@ class StyleManager{
         color: AppColors.white);
   }
 
+  static TextStyle greenBold = TextStyle(
+      color: Colors.green, fontWeight: FontWeight.bold);
+
+  static TextStyle greyRegular = TextStyle(
+  color: Colors.grey,
+  );
+
+
+
+
+
+
 }
