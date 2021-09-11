@@ -1,5 +1,7 @@
 import 'package:covid_fl/controllers/home_controller.dart';
 import 'package:covid_fl/utils/app_colors.dart';
+import 'package:covid_fl/utils/string_constant.dart';
+import 'package:covid_fl/utils/style_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -41,7 +43,7 @@ class Home extends StatelessWidget {
                   children: [
                     Container(
                         child: Text(
-                            "Karo India Foundation Initiative",
+                            StringConstant.COMPANY_NAME,
                             style: TextStyle(
                                 color: Colors.orange,
                                 fontSize: 15,
@@ -57,7 +59,7 @@ class Home extends StatelessWidget {
                           radius: 50,
                       ),
 
-                      label: Text("cName"),
+                      label: Text(StringConstant.COMPANY_NAME),
                     ),
                     SizedBox(
                       height: 10,
@@ -67,13 +69,8 @@ class Home extends StatelessWidget {
                         padding:
                         const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         child: Container(
-                            child: Text("Hello " + "Waheguru",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 17,
-                                    letterSpacing: 0,
-                                    fontWeight:
-                                    FontWeight.bold))),
+                            child: Text("Hello " + StringConstant.USERNAME,
+                                style: StyleManager.boldWhite())),
                       ),
                     ),
                     SizedBox(
@@ -115,7 +112,32 @@ class Home extends StatelessWidget {
               ),
               width: double.infinity,
             ),
-
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+                  child:  Text("My Tasks",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 17,
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.bold)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 25, 0),
+                  child: Text("My Points: ",
+                      style: TextStyle(
+                          color:Colors.white,
+                          fontSize: 17,
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
           ],
         ),
       ),);

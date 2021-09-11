@@ -6,4 +6,5 @@ class Routes {
   static const HOME = '/home';
   static const TIMELINE = '/timeline';
   static const STAFF = '/staff';
+  static const POST_ANNOUNCEMENT = '/post_announcement';
 }

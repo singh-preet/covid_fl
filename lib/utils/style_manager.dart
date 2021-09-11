@@ -7,7 +7,7 @@ class StyleManager{
 
   static TextStyle boldWhite({double fontSize}){
     return TextStyle(
-        fontSize: fontSize,
+        fontSize: fontSize??17,
         color: AppColors.white,
         fontWeight: FontWeight.bold);
   }

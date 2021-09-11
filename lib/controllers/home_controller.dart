@@ -1,7 +1,9 @@
-import 'package:covid_fl/features/home/widgets/action_sheet.dart';
+import 'package:covid_fl/features/admin/post_announcement.dart';
 import 'package:covid_fl/features/staff_directory/staff_directory.dart';
+import 'package:covid_fl/routes/app_routes.dart';
 import 'package:covid_fl/utils/app_logger.dart';
 import 'package:covid_fl/utils/string_constant.dart';
+import 'package:covid_fl/widgets/action_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,7 +27,7 @@ class HomeController extends GetxController {
     } else if (this.selectedTabIndex == 2) {
       Get.to(StaffDirectory());
     } else if (this.selectedTabIndex == 1) {
-      print("1");
+      Get.toNamed(Routes.POST_ANNOUNCEMENT);
     }
     AppLogger.printLog(index.toString());
     update();

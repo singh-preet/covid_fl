@@ -5,8 +5,9 @@ class AppColors{
 
   static const selectedTab =  Color(0xff228189);
   static const unselectedTab =  Colors.blueGrey;
-  static const backgroundColor =  Colors.teal;
+  static const backgroundColor =  Color(0xFF52796F);
   static const white = Colors.white;
-
+  static const yellowSplashColor = Colors.yellow;
+  static const darkGreenButton = Color(0xFF1B4332);
 
 }

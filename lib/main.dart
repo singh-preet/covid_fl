@@ -1,7 +1,12 @@
 import 'package:covid_fl/main/app.dart';
+import 'package:covid_fl/utils/app_preferences.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+
+  /*initialize Pref*/
+  await AppPreferences.getInstance();
   runApp(MyApp());
 }
 
