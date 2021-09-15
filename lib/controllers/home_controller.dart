@@ -27,7 +27,7 @@ class HomeController extends GetxController {
     } else if (this.selectedTabIndex == 2) {
       Get.to(StaffDirectory());
     } else if (this.selectedTabIndex == 1) {
-      Get.toNamed(Routes.POST_ANNOUNCEMENT);
+      Get.toNamed(Routes.STAFF_STATUS);
     }
     AppLogger.printLog(index.toString());
     update();

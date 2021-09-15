@@ -24,6 +24,9 @@ class StringConstant{
   static const String SELECT_OPTION =  "What do you want to do?";
 
 
+  static const String STAFF_STATUS =  "Staff Status";
+
+
 
 
   static const String POST_ANNOUNCEMENT =  "Post an announcement";

@@ -10,11 +10,11 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<LoginController>(
-      builder: (controller) {
-        return Scaffold(
-          backgroundColor: AppColors.backgroundColor,
-          body: Padding(
+    return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
+      body: GetBuilder<LoginController>(
+        builder: (controller) {
+          return Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
@@ -22,7 +22,6 @@ class LoginScreen extends StatelessWidget {
                 Transform.scale(scale: 0.5, child: Image.asset('assets/logo.png')),
                 Text(StringConstant.APP_NAME, style: StyleManager.boldWhite(fontSize: 50),),
                 SizedBox(height: 20,),
-                // Text(AppConstant.LOGIN, style:  StyleManager.boldWhite(fontSize: 30),),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: TextFormField(
@@ -54,9 +53,9 @@ class LoginScreen extends StatelessWidget {
                 Expanded(child: Container(),),
               ],
             ),
-          ),
-        );
-      }
+          );
+        }
+      ),
     );
   }
 }

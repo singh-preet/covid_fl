@@ -5,6 +5,7 @@ import 'package:covid_fl/bindings/splash_binding.dart';
 import 'package:covid_fl/bindings/staff_binding.dart';
 import 'package:covid_fl/bindings/timeline_binding.dart';
 import 'package:covid_fl/features/admin/post_announcement.dart';
+import 'package:covid_fl/features/admin/staff_status.dart';
 import 'package:covid_fl/features/home/home.dart';
 import 'package:covid_fl/features/login_screen/login_screen.dart';
 import 'package:covid_fl/features/splash_screen/splash_screen.dart';
@@ -23,5 +24,6 @@ class AppPages {
     GetPage(name: Routes.TIMELINE, page: ()=>TimeLine(), binding: TimeLineBinding()),
     GetPage(name: Routes.STAFF, page: ()=>StaffDirectory(), binding: StaffBinding()),
     GetPage(name: Routes.POST_ANNOUNCEMENT, page: ()=>PostAnnouncement(), binding: AnnouncementBinding()),
+    GetPage(name: Routes.STAFF_STATUS, page: ()=>StaffStatus(), binding: AnnouncementBinding()),
   ];
 }

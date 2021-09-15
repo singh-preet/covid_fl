@@ -17,6 +17,7 @@ dependencies:
   http: any                        #used for api call
   shared_preferences: ^2.0.5          #used for store data locally on team bases
   intl:
+  flutter_slidable:
 
 dev_dependencies:
   flutter_test:
