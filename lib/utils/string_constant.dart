@@ -24,7 +24,10 @@ class StringConstant{
   static const String SELECT_OPTION =  "What do you want to do?";
 
 
+  static const String ADMIN_PANEL =  "Admin Panel";
   static const String STAFF_STATUS =  "Staff Status";
+  static const String LEADERBOARD =  "Leaderboard";
+
 
 
 

@@ -1,9 +1,13 @@
+import 'package:covid_fl/bindings/admin_panel_binding.dart';
 import 'package:covid_fl/bindings/announcement_binding.dart';
 import 'package:covid_fl/bindings/home_binding.dart';
+import 'package:covid_fl/bindings/leaderboard_binding.dart';
 import 'package:covid_fl/bindings/login_binding.dart';
 import 'package:covid_fl/bindings/splash_binding.dart';
 import 'package:covid_fl/bindings/staff_binding.dart';
 import 'package:covid_fl/bindings/timeline_binding.dart';
+import 'package:covid_fl/features/admin/admin_panel.dart';
+import 'package:covid_fl/features/admin/leaderboard.dart';
 import 'package:covid_fl/features/admin/post_announcement.dart';
 import 'package:covid_fl/features/admin/staff_status.dart';
 import 'package:covid_fl/features/home/home.dart';
@@ -25,5 +29,7 @@ class AppPages {
     GetPage(name: Routes.STAFF, page: ()=>StaffDirectory(), binding: StaffBinding()),
     GetPage(name: Routes.POST_ANNOUNCEMENT, page: ()=>PostAnnouncement(), binding: AnnouncementBinding()),
     GetPage(name: Routes.STAFF_STATUS, page: ()=>StaffStatus(), binding: AnnouncementBinding()),
+    GetPage(name: Routes.LEADERBOARD, page: ()=>LeaderBoard(), binding: LeaderBoardBinding()),
+    GetPage(name: Routes.ADMIN_PANEL, page: ()=>AdminPanel(), binding: AdminPanelBinding()),
   ];
 }
