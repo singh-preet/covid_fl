@@ -26,6 +26,8 @@ class StringConstant{
 
   static const String ADMIN_PANEL =  "Admin Panel";
   static const String STAFF_STATUS =  "Staff Status";
+  static const String NEW_ANNOUNCEMENT =  "New Announcement";
+  static const String SWITCH =  "Switch";
   static const String LEADERBOARD =  "Leaderboard";
 
 
