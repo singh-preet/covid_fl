@@ -1,5 +1,6 @@
 import 'package:covid_fl/controllers/login_controller.dart';
 import 'package:covid_fl/utils/app_colors.dart';
+import 'package:covid_fl/utils/app_images.dart';
 import 'package:covid_fl/utils/string_constant.dart';
 import 'package:covid_fl/utils/style_manager.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 Expanded(child: Container(),),
-                Transform.scale(scale: 0.5, child: Image.asset('assets/logo.png')),
+                Transform.scale(scale: 0.5, child: Image.asset(AppImages.logo)),
                 Text(StringConstant.APP_NAME, style: StyleManager.boldWhite(fontSize: 50),),
                 SizedBox(height: 20,),
                 Padding(

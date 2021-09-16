@@ -30,6 +30,12 @@ class AppPreferences{
   }
 
 
+  ///keys
+  static String superAdmin = 'superAdmin';
+  static String userid = 'userid';
+  static String company = 'company';
+
+
   /// sets methods
   static Future<bool> setBool(String key, bool value) async {
     if (_prefs == null) return null;

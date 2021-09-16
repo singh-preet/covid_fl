@@ -1,4 +1,5 @@
 import 'package:covid_fl/utils/app_colors.dart';
+import 'package:covid_fl/utils/app_images.dart';
 import 'package:covid_fl/utils/string_constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -100,7 +101,7 @@ class StaffStatus extends StatelessWidget {
                               child: CircleAvatar(
                                 radius: 13,
                                 backgroundImage:
-                                    AssetImage("assets/generic.png"),
+                                    AssetImage(AppImages.profile),
                               ),
                             ),
                             title: Text("fname",

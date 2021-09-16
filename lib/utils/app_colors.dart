@@ -9,5 +9,6 @@ class AppColors{
   static const white = Colors.white;
   static const yellowSplashColor = Colors.yellow;
   static const darkGreenButton = Color(0xFF1B4332);
+  static final lightOrange = Colors.orange[400];
 
 }

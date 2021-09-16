@@ -27,7 +27,7 @@ class AdminPanel extends StatelessWidget {
                 ),
                 Text('formattedDate',
                     style: TextStyle(
-                        color: Colors.white,
+                        color: AppColors.white,
                         fontSize: 15,
                         letterSpacing: 4,
                         fontWeight: FontWeight.bold)),
@@ -35,11 +35,13 @@ class AdminPanel extends StatelessWidget {
                   height: 10,
                 ),
                 Text('companyName',
-                    style: TextStyle(
-                        color: Colors.orange[400],
+                    style:
+                    TextStyle(
+                        color: AppColors.lightOrange,
                         fontSize: 12,
                         letterSpacing: 2,
-                        fontWeight: FontWeight.bold)),
+                        fontWeight: FontWeight.bold)
+                ),
                 SizedBox(
                   height: 20,
                 ),
