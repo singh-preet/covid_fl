@@ -2,12 +2,12 @@ class StringConstant{
   StringConstant._();
 
   ///Global
-  static const String APP_NAME =  "Keep Connected";
+  static const String APP_NAME =  "Phone Tech London";
   static const String COMPANY_NAME =  "Karo India Foundation Initiative";
   static const String LOGIN =  "Login";
   static const String REQUEST_OTP =  "Request OTP";
   static const String STAFF =  "Who's In?";
-  static const String USERNAME =  "Sunpreet Singh";
+  static const String USERNAME =  "KIRAN";
 
 
 

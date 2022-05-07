@@ -1,5 +1,6 @@
 import 'package:covid_fl/data/models/speed_dial_details_model.dart';
 import 'package:covid_fl/routes/app_routes.dart';
+import 'package:covid_fl/utils/app_colors.dart';
 import 'package:covid_fl/utils/string_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,7 +35,7 @@ class SpeedDialFAB extends StatelessWidget {
       width: 68.0,
       child: FittedBox(
         child: FloatingActionButton(
-          backgroundColor: Colors.amber,
+          backgroundColor: AppColors.lightOrange,
           child: Icon(
             Icons.add,
             color: Colors.black,
@@ -47,7 +48,7 @@ class SpeedDialFAB extends StatelessWidget {
                 width: 68.0,
                 child: FittedBox(
                   child: FloatingActionButton(
-                      backgroundColor: Colors.amber,
+                      backgroundColor: AppColors.lightOrange,
                       child: Icon(
                         Icons.close,
                         color: Colors.black,

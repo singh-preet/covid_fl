@@ -79,6 +79,7 @@ class AnnouncementController extends GetxController {
             ));
   }
 
+
   @override
   void onInit() {
     announcementController = new TextEditingController();

@@ -1,7 +1,7 @@
 import 'package:covid_fl/controllers/home_controller.dart';
 import 'package:covid_fl/utils/app_colors.dart';
+import 'package:covid_fl/utils/app_images.dart';
 import 'package:covid_fl/utils/string_constant.dart';
-import 'package:covid_fl/utils/style_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,136 +11,52 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(builder: (controller) {
-      return Scaffold(
+      return DefaultTabController(
+        length: 3,
+        initialIndex: 0,
+        child: Scaffold(
           backgroundColor: AppColors.backgroundColor,
-          bottomNavigationBar: BottomNavigationBar(
-              items: controller.items,
-              selectedItemColor: AppColors.selectedTab,
-              unselectedItemColor: AppColors.unselectedTab,
-              currentIndex: controller.selectedTabIndex,
-              onTap: (int index)=>controller.onTabChanged(index, context)),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Keep ",
-                  style: TextStyle(color: Colors.white),
-                ),
-                Text(
-                  "Connected",
-                  style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                ),
-              ],
+          appBar: AppBar(
+            leading: CircleAvatar(
+              backgroundImage: AssetImage(AppImages.logo),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
-                  children: [
-                    Container(
-                        child: Text(
-                            StringConstant.COMPANY_NAME,
-                            style: TextStyle(
-                                color: Colors.orange,
-                                fontSize: 15,
-                                letterSpacing: 2,
-                                fontWeight:
-                                FontWeight.bold))),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Chip(
-                      backgroundColor: Colors.transparent,
-                      avatar: CircleAvatar(
-                          radius: 50,
-                      ),
-
-                      label: Text(StringConstant.COMPANY_NAME),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Center(
-                      child: Padding(
-                        padding:
-                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        child: Container(
-                            child: Text("Hello " + StringConstant.USERNAME,
-                                style: StyleManager.boldWhite())),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Padding(
-                      padding:
-                      const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: Container(
-                          child: Text("It's " + "date",
-                              style: TextStyle(
-                                  color: Colors.white70,
-                                  fontSize: 17,
-                                  letterSpacing: 0,
-                                  fontWeight: FontWeight.bold))),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Padding(
-                      padding:
-                      const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: Container(
-                          child: Text("time",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 17,
-                                  letterSpacing: 0,
-                                  fontWeight: FontWeight.bold))),
-                    ),
-                  ],
-                )
+                Text(
+                  StringConstant.USERNAME,
+                  style: TextStyle(color: AppColors.lightOrange, letterSpacing: 2),
+                ),
+                Text(
+                  StringConstant.APP_NAME,
+                  style: TextStyle(color: AppColors.unselectedTab,fontSize: 12),
+                ),
               ],
             ),
-            SizedBox(
-              height: 40,
-              child: Divider(
-                color: Colors.teal.shade100,
+            backgroundColor: AppColors.white,
+            bottom:  TabBar(
+              labelColor: AppColors.lightOrange,
+              tabs: [
+                Tab(child: Text("Brands"),),
+                Tab(child: Text("Models"),),
+                Tab(icon: Text("Models"),),
+              ],
+            ),
+          ),
+          body: TabBarView(
+            children: [
+              Container(child: ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (context, index){
+                return Card();
+              }),
               ),
-              width: double.infinity,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
-                  child:  Text("My Tasks",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
-                          letterSpacing: 0,
-                          fontWeight: FontWeight.bold)),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 25, 0),
-                  child: Text("My Points: ",
-                      style: TextStyle(
-                          color:Colors.white,
-                          fontSize: 17,
-                          letterSpacing: 0,
-                          fontWeight: FontWeight.bold)),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-          ],
+              Container(color: Colors.white,),
+              Container(color: Colors.white,)
+            ],
+          ),
         ),
-      ),);
+      );
     });
   }
 }

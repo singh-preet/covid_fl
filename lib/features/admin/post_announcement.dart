@@ -8,8 +8,7 @@ import 'package:get/get.dart';
 class PostAnnouncement extends StatelessWidget {
   const PostAnnouncement({Key key}) : super(key: key);
 
-
-  @override
+    @override
   Widget build(BuildContext context) {
     return GetBuilder<AnnouncementController>(
         builder: (controller) {
@@ -26,7 +25,9 @@ class PostAnnouncement extends StatelessWidget {
                       Card(
                           color: AppColors.white,
                           margin: EdgeInsets.all(19),
-                          child: Padding(padding: EdgeInsets.all(8.0), child: TextField(controller: controller.announcementController, maxLines: 15, decoration: InputDecoration.collapsed(hintText: StringConstant.ANNOUNCEMENT_HINT)))),
+                          child: Padding(padding: EdgeInsets.all(8.0),
+                              child: TextField(
+                                  controller: controller.announcementController, maxLines: 15, decoration: InputDecoration.collapsed(hintText: StringConstant.ANNOUNCEMENT_HINT)))),
                       Center(
                         child: ButtonBar(
                           alignment: MainAxisAlignment.center,
@@ -46,7 +47,7 @@ class PostAnnouncement extends StatelessWidget {
                               padding: EdgeInsets.all(10),
                               splashColor: AppColors.yellowSplashColor[200],
                               elevation: 6,
-                              onPressed: ()=> Get.back(),
+                              onPressed: ()=> print(controller.announcementController.text),
                               child: Text(StringConstant.CANCEL, style: StyleManager.regularWhite(fontSize: 20)),
                             ),
                           ],

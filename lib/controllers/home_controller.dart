@@ -9,14 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  List<BottomNavigationBarItem> items = [
-    BottomNavigationBarItem(
-        icon: Icon(Icons.access_alarm), label: StringConstant.ACTIONS),
-    BottomNavigationBarItem(
-        icon: Icon(Icons.timeline), label: StringConstant.TIMELINE),
-    BottomNavigationBarItem(
-        icon: Icon(Icons.pregnant_woman), label: StringConstant.STAFF),
-  ];
+
 
   int selectedTabIndex = 0;
 
@@ -25,7 +18,7 @@ class HomeController extends GetxController {
     if (this.selectedTabIndex == 0) {
       showCupertinoModalPopup(context: context, builder: (BuildContext context) => ActionSheet());
     } else if (this.selectedTabIndex == 2) {
-      Get.to(StaffDirectory());
+      Get.toNamed(Routes.ADMIN_PANEL);
     } else if (this.selectedTabIndex == 1) {
       Get.toNamed(Routes.TIMELINE);
     }
