@@ -5,6 +5,9 @@ import 'package:covid_fl/utils/string_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../utils/style_manager.dart';
+import '../../widgets/brand_list_widget.dart';
+
 class Home extends StatelessWidget {
   const Home({Key key}) : super(key: key);
 
@@ -17,42 +20,57 @@ class Home extends StatelessWidget {
         child: Scaffold(
           backgroundColor: AppColors.backgroundColor,
           appBar: AppBar(
-            leading: CircleAvatar(
-              backgroundImage: AssetImage(AppImages.logo),
+            leading: Padding(
+              padding: const EdgeInsets.only(
+                  left: 8.0, top: 8.0, right: 0.0, bottom: 0.0),
+              child: CircleAvatar(
+                backgroundImage: AssetImage(AppImages.logo),
+              ),
             ),
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   StringConstant.USERNAME,
-                  style: TextStyle(color: AppColors.lightOrange, letterSpacing: 2),
+                  style:
+                      TextStyle(color: AppColors.lightOrange, letterSpacing: 2),
                 ),
                 Text(
                   StringConstant.APP_NAME,
-                  style: TextStyle(color: AppColors.unselectedTab,fontSize: 12),
+                  style:
+                      TextStyle(color: AppColors.unselectedTab, fontSize: 12),
                 ),
               ],
             ),
             backgroundColor: AppColors.white,
-            bottom:  TabBar(
+            bottom: TabBar(
               labelColor: AppColors.lightOrange,
               tabs: [
-                Tab(child: Text("Brands"),),
-                Tab(child: Text("Models"),),
-                Tab(icon: Text("Models"),),
+                Tab(
+                  child: Text("Brands"),
+                ),
+                Tab(
+                  child: Text("Models"),
+                ),
+                Tab(
+                  icon: Text("Models"),
+                ),
               ],
             ),
           ),
           body: TabBarView(
             children: [
-              Container(child: ListView.builder(
+              ListView.builder(
                   itemCount: 5,
-                  itemBuilder: (context, index){
-                return Card();
-              }),
+                  itemBuilder: (context, index) {
+                    return BrandListWidget();
+                  }),
+              Container(
+                color: Colors.white,
               ),
-              Container(color: Colors.white,),
-              Container(color: Colors.white,)
+              Container(
+                color: Colors.white,
+              )
             ],
           ),
         ),
