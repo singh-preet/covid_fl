@@ -49,7 +49,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             margin: EdgeInsets.only(top: 15),
             child: Text(
               'Choose services from the list',
-              style: StyleManager.boldBlack(),
+              style: StyleManager.bold(color: AppColors.black),
             )),
         Expanded(
           child: ListView.builder(
@@ -78,7 +78,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             children: [
               Text(
                 StringConstant.SUBTOTAL,
-                style: StyleManager.boldBlack(fontSize: 18),
+                style: StyleManager.bold(color: AppColors.black,fontSize: 18),
               ),
               MaterialButton(
                 onPressed: () {},

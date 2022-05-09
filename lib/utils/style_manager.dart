@@ -12,10 +12,10 @@ class StyleManager{
         fontWeight: FontWeight.bold);
   }
 
-  static TextStyle boldBlack({double fontSize}){
+  static TextStyle bold({double fontSize, Color color}){
     return TextStyle(
         fontSize: fontSize??17,
-        color: AppColors.black,
+        color: color,
         fontWeight: FontWeight.bold);
   }
   static TextStyle regularBlack({double fontSize}){

@@ -4,8 +4,6 @@ import 'package:covid_fl/utils/app_images.dart';
 import 'package:covid_fl/utils/string_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../utils/style_manager.dart';
 import '../../widgets/brand_list_widget.dart';
 
 class Home extends StatelessWidget {
@@ -60,7 +58,7 @@ class Home extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              BrandListView(),
+              BrandListView(data: controller.brandData,),
               Container(
                 color: Colors.white,
               ),
