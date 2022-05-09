@@ -60,11 +60,7 @@ class Home extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              ListView.builder(
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return BrandListWidget();
-                  }),
+              BrandListView(),
               Container(
                 color: Colors.white,
               ),
@@ -78,3 +74,4 @@ class Home extends StatelessWidget {
     });
   }
 }
+

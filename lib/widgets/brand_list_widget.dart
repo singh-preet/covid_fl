@@ -5,6 +5,29 @@ import '../routes/app_routes.dart';
 import '../utils/app_colors.dart';
 import '../utils/style_manager.dart';
 
+class BrandListView extends StatelessWidget {
+  const BrandListView({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(
+          child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return BrandListWidget();
+              }),
+        ),
+        ElevatedButton(onPressed: () {}, child: Text("Add new Brand")),
+      ],
+    );
+  }
+}
+
 class BrandListWidget extends StatelessWidget {
   const BrandListWidget({
     Key key,
@@ -21,9 +44,11 @@ class BrandListWidget extends StatelessWidget {
         },
         child: Container(
           padding: EdgeInsets.all(10),
-          height: 40,
+          height: 100,
           decoration: BoxDecoration(
-            color: AppColors.lightOrange,
+            border: Border.all(
+              color: AppColors.lightOrange,
+            ),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Center(
@@ -32,7 +57,6 @@ class BrandListWidget extends StatelessWidget {
               children: [
                 Text(
                   "Samsung",
-                  style: StyleManager.regularWhite(),
                 ),
                 Icon(
                   Icons.edit,
