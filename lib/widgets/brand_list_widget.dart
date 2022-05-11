@@ -1,4 +1,4 @@
-import 'package:covid_fl/controllers/home_controller.dart';
+import 'package:covid_fl/data/models/brand_model.dart';
 import 'package:covid_fl/utils/style_manager.dart';
 import 'package:covid_fl/widgets/product_list_widget.dart';
 import 'package:flutter/material.dart';

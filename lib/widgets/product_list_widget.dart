@@ -2,7 +2,6 @@ import 'package:covid_fl/controllers/product_list_controller.dart';
 import 'package:covid_fl/widgets/product_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../controllers/product_detail_controller.dart';
 import '../utils/app_colors.dart';
 import '../utils/style_manager.dart';

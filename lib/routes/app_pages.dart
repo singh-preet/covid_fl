@@ -1,25 +1,13 @@
-import 'package:covid_fl/bindings/admin_panel_binding.dart';
-import 'package:covid_fl/bindings/announcement_binding.dart';
 import 'package:covid_fl/bindings/home_binding.dart';
-import 'package:covid_fl/bindings/leaderboard_binding.dart';
 import 'package:covid_fl/bindings/login_binding.dart';
 import 'package:covid_fl/bindings/splash_binding.dart';
-import 'package:covid_fl/bindings/staff_binding.dart';
-import 'package:covid_fl/bindings/timeline_binding.dart';
-import 'package:covid_fl/features/admin/admin_panel.dart';
-import 'package:covid_fl/features/admin/leaderboard.dart';
-import 'package:covid_fl/features/admin/post_announcement.dart';
-import 'package:covid_fl/features/admin/staff_status.dart';
 import 'package:covid_fl/features/home/home.dart';
 import 'package:covid_fl/features/login_screen/login_screen.dart';
 import 'package:covid_fl/features/splash_screen/splash_screen.dart';
-import 'package:covid_fl/features/staff_directory/staff_directory.dart';
-import 'package:covid_fl/features/timeline/timeline.dart';
 import 'package:covid_fl/routes/app_routes.dart';
 import 'package:covid_fl/widgets/brand_list_widget.dart';
 import 'package:covid_fl/widgets/product_list_widget.dart';
 import 'package:get/get.dart';
-
 import '../bindings/brand_list_binding.dart';
 import '../bindings/product_list_binding.dart';
 
@@ -31,36 +19,9 @@ class AppPages {
         name: Routes.INITIAL,
         page: () => SplashScreen(),
         binding: SplashBinding()),
+    GetPage(name: Routes.HOME, page: () => Home(), binding: HomeBinding()),
     GetPage(
         name: Routes.LOGIN, page: () => LoginScreen(), binding: LoginBinding()),
-    GetPage(name: Routes.HOME, page: () => Home(), bindings: [
-      HomeBinding(),
-      StaffBinding(),
-    ]),
-    GetPage(
-        name: Routes.TIMELINE,
-        page: () => TimeLine(),
-        binding: TimeLineBinding()),
-    GetPage(
-        name: Routes.STAFF,
-        page: () => StaffDirectory(),
-        binding: StaffBinding()),
-    GetPage(
-        name: Routes.POST_ANNOUNCEMENT,
-        page: () => PostAnnouncement(),
-        binding: AnnouncementBinding()),
-    GetPage(
-        name: Routes.STAFF_STATUS,
-        page: () => StaffStatus(),
-        binding: AnnouncementBinding()),
-    GetPage(
-        name: Routes.LEADERBOARD,
-        page: () => LeaderBoard(),
-        binding: LeaderBoardBinding()),
-    GetPage(
-        name: Routes.ADMIN_PANEL,
-        page: () => AdminPanel(),
-        binding: AdminPanelBinding()),
     GetPage(
         name: Routes.BRANDS_LIST,
         page: () => BrandListWidget(),

@@ -1,6 +1,3 @@
-import 'package:covid_fl/routes/app_routes.dart';
-import 'package:covid_fl/utils/app_logger.dart';
-import 'package:covid_fl/widgets/action_sheet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
