@@ -9,7 +9,7 @@ class StringConstant {
   static const String STAFF = "Who's In?";
   static const String USERNAME = "KIRAN";
   static const String PROCEED_TO_PAY = "Proceed to Pay";
-  static const String SUBTOTAL = "SubTotal";
+  static const String TOTAL = "Total";
 
   /// Actions
   static const String ACTIONS = "Actions";

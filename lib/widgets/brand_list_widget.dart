@@ -3,12 +3,14 @@ import 'package:covid_fl/utils/style_manager.dart';
 import 'package:covid_fl/widgets/product_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../controllers/product_list_controller.dart';
 import '../utils/app_colors.dart';
 
 class BrandListView extends StatelessWidget {
   final List<BrandModel> data;
   const BrandListView({
-    Key key, this.data,
+    Key key,
+    this.data,
   }) : super(key: key);
 
   @override
@@ -36,8 +38,9 @@ class BrandListView extends StatelessWidget {
 }
 
 class BrandListWidget extends StatelessWidget {
+  final ProductListController controller = Get.put(ProductListController());
   final String brandName, remarks;
-  const BrandListWidget({
+  BrandListWidget({
     Key key,
     this.brandName,
     this.remarks,
@@ -47,8 +50,12 @@ class BrandListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => ProductListWidget()));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ProductListWidget(
+                      data: controller.productData,
+                    )));
       },
       child: Container(
         padding: EdgeInsets.all(8),
@@ -65,7 +72,8 @@ class BrandListWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  brandName,style: StyleManager.bold(color: AppColors.unselectedTab),
+                  brandName,
+                  style: StyleManager.bold(color: AppColors.unselectedTab),
                 ),
                 IconButton(
                   onPressed: () => Get.defaultDialog(
@@ -73,14 +81,16 @@ class BrandListWidget extends StatelessWidget {
                       content: EditBrandDialog(),
                       barrierDismissible: false),
                   icon: Icon(
-                    Icons.edit,color: AppColors.lightOrange,
+                    Icons.edit,
+                    color: AppColors.lightOrange,
                     size: 20,
                   ),
                 )
               ],
             ),
             Text(
-              remarks,style: StyleManager.regularBlack(fontSize: 12),
+              remarks,
+              style: StyleManager.regularBlack(fontSize: 12),
             ),
           ],
         ),

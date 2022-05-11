@@ -12,21 +12,10 @@ class BrandModel {
 }
 
 class HomeController extends GetxController {
-  List<BrandModel> brandData = [BrandModel(name: "Samsung",remarks: "some remarks"),BrandModel(name: "Apple",remarks: ""),BrandModel(name: "Huawei",remarks: "some remarks"),BrandModel(name: "Sony",remarks: ""),];
-
-  int selectedTabIndex = 0;
-
-  void onTabChanged(int index, BuildContext context) {
-    this.selectedTabIndex = index;
-    if (this.selectedTabIndex == 0) {
-      showCupertinoModalPopup(
-          context: context, builder: (BuildContext context) => ActionSheet());
-    } else if (this.selectedTabIndex == 2) {
-      Get.toNamed(Routes.ADMIN_PANEL);
-    } else if (this.selectedTabIndex == 1) {
-      Get.toNamed(Routes.TIMELINE);
-    }
-    AppLogger.printLog(index.toString());
-    update();
-  }
+  List<BrandModel> brandData = [
+    BrandModel(name: "Samsung", remarks: "some remarks"),
+    BrandModel(name: "Apple", remarks: ""),
+    BrandModel(name: "Huawei", remarks: "some remarks"),
+    BrandModel(name: "Sony", remarks: ""),
+  ];
 }

@@ -58,7 +58,7 @@ class Home extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              BrandListView(data: controller.brandData,),
+              BrandListView(data: controller.brandData),
               Container(
                 color: Colors.white,
               ),
@@ -72,4 +72,3 @@ class Home extends StatelessWidget {
     });
   }
 }
-
