@@ -51,7 +51,7 @@ class Home extends StatelessWidget {
                   child: Text("Models"),
                 ),
                 Tab(
-                  icon: Text("Models"),
+                  icon: Text("Orders"),
                 ),
               ],
             ),
@@ -59,11 +59,21 @@ class Home extends StatelessWidget {
           body: TabBarView(
             children: [
               BrandListView(data: controller.brandData),
+
               Container(
                 color: Colors.white,
+                height: 500,
+                width: 400,
+                alignment: Alignment.center,
+                child: Column(
+                  children: [
+                    Text("Waheguru"),
+
+                  ],
+                ),
               ),
-              Container(
-                color: Colors.white,
+              Orders(
+                data: controller.orderData,
               )
             ],
           ),
@@ -72,3 +82,115 @@ class Home extends StatelessWidget {
     });
   }
 }
+
+
+class Orders extends StatelessWidget {
+  final List<OrderModel> data;
+  const Orders({Key key, this.data}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(
+          child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: data.length,
+              padding: const EdgeInsets.all(8),
+              itemBuilder: (context, index) {
+                return Theme(
+                  data: ThemeData(
+                    splashColor: Colors.transparent,
+                  ).copyWith(
+                      colorScheme: ThemeData()
+                          .colorScheme
+                          .copyWith(secondary: Colors.black)),
+                  child: ExpansionTile(
+                    onExpansionChanged: (val) {
+                      // setState(() {
+                      //   isExpanded[index] = val;
+                      // });
+                    },
+                    tilePadding: EdgeInsets.zero,
+                    title: Text(data[index].customerName),
+                    subtitle: Text(data[index].email),
+                    trailing: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.call,
+                        color: Colors.green,
+                      ),
+                    ),
+                    expandedAlignment: Alignment.centerLeft,
+                    children: <Widget>[
+                      Container(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                height: 300,
+                                child: ListView.separated(
+                                  shrinkWrap: true,
+                                  itemCount: 3,
+                                  itemBuilder: (context, index) {
+                                    return Text("Screen Repair");
+                                  },
+                                  separatorBuilder:
+                                      (BuildContext context, int index) {
+                                    return Divider();
+                                  },
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Image.network(
+                                    "https://ebillplus.com/phonetech/public/assets/web/img/brands/iphone.png",
+                                    fit: BoxFit.fill,
+                                    height: 200,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+                // OrderTile(data: data);
+              }),
+        ),
+      ],
+    );
+  }
+}
+
+// class OrderTile extends StatelessWidget {
+//   const OrderTile({
+//     Key key,
+//     @required this.data,
+//   }) : super(key: key);
+//
+//   final List<OrderModel> data;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//         padding: const EdgeInsets.all(8.0),
+//         child: ListTile(
+//           leading: Image.network("https://ebillplus.com/phonetech/public/assets/web/img/brands/iphone.png"),
+//           title: Text(data[index].customerName),
+//           subtitle: Text(data[index].email),
+//           trailing: IconButton(
+//             onPressed: () {},
+//             icon: Icon(
+//               Icons.call,
+//               color: Colors.green,
+//             ),
+//           ),
+//         ));
+//   }
+// }
