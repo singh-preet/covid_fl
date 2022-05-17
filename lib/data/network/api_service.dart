@@ -18,6 +18,5 @@ abstract class ApiService {
   }
 
   @POST(UrlConstants.login)
-  Future<HttpResponse<LoginResponse>> login(
-      {@Body() Map<String, dynamic> data});
+  Future<HttpResponse<LoginResponse>> login(Map<String, dynamic> data);
 }

@@ -18,7 +18,7 @@ class _ApiService implements ApiService {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<LoginResponse>> login({required data}) async {
+  Future<HttpResponse<LoginResponse>> login(Map<String, dynamic> data) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
