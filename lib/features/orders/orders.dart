@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class Orders extends StatelessWidget {
   final List<OrderModel> data;
-  const Orders({Key key, this.data}) : super(key: key);
+  const Orders({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

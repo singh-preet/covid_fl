@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProductListModel {
-  ProductListModel({this.serviceName, this.price, @required this.prodName});
+  ProductListModel({required this.serviceName,required  this.price, required this.prodName});
 
   final String prodName, serviceName, price;
 }

@@ -9,8 +9,8 @@ import '../utils/app_colors.dart';
 class BrandListView extends StatelessWidget {
   final List<BrandModel> data;
   const BrandListView({
-    Key key,
-    this.data,
+    Key? key,
+    required this.data,
   }) : super(key: key);
 
   @override
@@ -41,9 +41,9 @@ class BrandListWidget extends StatelessWidget {
   final ProductListController controller = Get.put(ProductListController());
   final String brandName, remarks;
   BrandListWidget({
-    Key key,
-    this.brandName,
-    this.remarks,
+    Key? key,
+    required this.brandName,
+    required this.remarks,
   }) : super(key: key);
 
   @override
@@ -101,7 +101,7 @@ class BrandListWidget extends StatelessWidget {
 
 class EditBrandDialog extends StatelessWidget {
   const EditBrandDialog({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

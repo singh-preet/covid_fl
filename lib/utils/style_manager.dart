@@ -1,30 +1,29 @@
 import 'package:covid_fl/utils/app_colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class StyleManager{
   StyleManager._();
 
-  static TextStyle boldWhite({double fontSize}){
+  static TextStyle boldWhite({double? fontSize}){
     return TextStyle(
         fontSize: fontSize??17,
         color: AppColors.white,
         fontWeight: FontWeight.bold);
   }
 
-  static TextStyle bold({double fontSize, Color color}){
+  static TextStyle bold({double? fontSize, Color? color}){
     return TextStyle(
         fontSize: fontSize??17,
         color: color,
         fontWeight: FontWeight.bold);
   }
-  static TextStyle regularBlack({double fontSize}){
+  static TextStyle regularBlack({double? fontSize}){
     return TextStyle(
         fontSize: fontSize??14,
         color: AppColors.black);
   }
 
-  static TextStyle regularWhite({double fontSize}){
+  static TextStyle regularWhite({double? fontSize}){
     return TextStyle(
         fontSize: fontSize??14,
         color: AppColors.white);

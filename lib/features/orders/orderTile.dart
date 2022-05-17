@@ -1,4 +1,3 @@
-import 'package:covid_fl/controllers/home_controller.dart';
 import 'package:covid_fl/data/models/order_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,8 +5,8 @@ import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 class OrderTile extends StatelessWidget {
   const OrderTile({
-    Key key,
-    @required this.data,
+    Key? key,
+    required this.data,
   }) : super(key: key);
 
   final OrderModel data;

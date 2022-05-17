@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
-
 class BrandModel {
-  BrandModel({@required this.name, this.remarks});
+  BrandModel({required this.name,required  this.remarks});
   final String name;
   final String remarks;
 }

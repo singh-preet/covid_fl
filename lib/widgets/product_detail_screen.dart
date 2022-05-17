@@ -11,7 +11,7 @@ class ProductDetailScreen extends StatelessWidget {
   final List<ProductDetailModel> data;
   final String prodName;
 
-  const ProductDetailScreen({Key key, this.data, this.prodName})
+  const ProductDetailScreen({Key? key,required  this.data,required  this.prodName})
       : super(key: key);
 
   @override
@@ -117,7 +117,7 @@ Widget buildBody(List<ProductDetailModel> data) {
 class DetailWidget extends StatelessWidget {
   final String prodName, price;
 
-  const DetailWidget({Key key, this.prodName, this.price}) : super(key: key);
+  const DetailWidget({Key? key, required this.prodName,required  this.price}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

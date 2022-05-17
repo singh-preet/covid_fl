@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
 class ProductDetailModel {
-  ProductDetailModel({@required this.prodName, this.price});
+  ProductDetailModel({required this.prodName,required  this.price});
 
   final String prodName;
   final String price;

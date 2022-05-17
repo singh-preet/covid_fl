@@ -8,7 +8,7 @@ import '../utils/style_manager.dart';
 
 class ProductListWidget extends StatelessWidget {
   final List<ProductListModel> data;
-  ProductListWidget({Key key, this.data}) : super(key: key);
+  ProductListWidget({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,10 +57,10 @@ class ProductWidget extends StatelessWidget {
   final ProductDetailController controller = Get.put(ProductDetailController());
 
   ProductWidget({
-    Key key,
-    this.name,
-    this.serviceName,
-    this.price,
+    Key? key,
+    required this.name,
+    required this.serviceName,
+    required this.price,
   }) : super(key: key);
 
   @override
@@ -121,7 +121,7 @@ class ProductWidget extends StatelessWidget {
 
 class EditBrandDialog extends StatelessWidget {
   const EditBrandDialog({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
