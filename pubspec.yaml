@@ -19,7 +19,6 @@ dependencies:
   http: any                        #used for api call
   shared_preferences: ^2.0.5          #used for store data locally on team bases
   intl:
-  flutter_slidable:
   url_launcher: ^6.0.10
   get: ^4.6.1
   dartz: ^0.10.0
@@ -28,6 +27,10 @@ dependencies:
   json_serializable: 6.1.3
   retrofit_generator: any
   build_runner: any
+  logger: any
+  pretty_dio_logger: ^1.1.1
+
+
 
 
 dev_dependencies:

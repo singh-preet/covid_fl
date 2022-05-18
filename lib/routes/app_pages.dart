@@ -21,16 +21,15 @@ class AppPages {
         name: Routes.INITIAL,
         page: () => SplashScreen(),
         binding: SplashBinding()),
-    GetPage(name: Routes.HOME, page: () => Home(), bindings: [HomeBinding(),BrandListBinding(),ProductListBinding()]),
-    GetPage(
-        name: Routes.LOGIN, page: () => LoginScreen(), bindings: [ApiServiceBinds(),DioBinds(), LoginBinding(),]),
-    // GetPage(
-    //     name: Routes.BRANDS_LIST,
-    //     page: () => BrandListWidget(),
-    //     binding: BrandListBinding()),
-    // GetPage(
-    //     name: Routes.PRODUCT_LIST,
-    //     page: () => ProductListWidget(),
-    //     binding: ProductListBinding())
+    GetPage(name: Routes.HOME, page: () => Home(), bindings: [
+      HomeBinding(),
+      BrandListBinding(),
+      ProductListBinding(),
+    ]),
+    GetPage(name: Routes.LOGIN, page: () => LoginScreen(), bindings: [
+      DioBinds(),
+      ApiServiceBinds(),
+      LoginBinding(),
+    ]),
   ];
 }
