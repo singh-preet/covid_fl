@@ -1,3 +1,4 @@
+import 'package:covid_fl/data/models/request_model/login_request.dart';
 import 'package:covid_fl/data/models/response_model/login_response.dart';
 import 'package:covid_fl/data/network/api_service.dart';
 import 'package:covid_fl/data/network/utils/network_error.dart';
@@ -12,7 +13,7 @@ class LoginRepository {
   LoginRepository({required this.apiService});
 
   Future<Either<NetworkError, LoginResponse>> login(
-      Map<String, dynamic> body) async {
+      LoginRequest body) async {
     final data = await safeApiCall(apiService!.login(body));
     return data.fold((l) => Left(l), (r) {
       return Right(r.data);

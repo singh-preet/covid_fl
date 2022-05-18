@@ -1,3 +1,6 @@
+import 'package:covid_fl/data/models/request_model/fetch_brand_request.dart';
+import 'package:covid_fl/data/models/request_model/fetch_models_request.dart';
+import 'package:covid_fl/data/models/request_model/login_request.dart';
 import 'package:covid_fl/data/network/network_properties.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:covid_fl/utils/url_constants.dart';
@@ -13,10 +16,18 @@ part 'api_service.g.dart';
 //flutter packages pub run build_runner build --delete-conflicting-outputs
 
 abstract class ApiService {
-  factory ApiService(Dio dioBinds, {String? baseUrl}) {
-    return _ApiService(dioBinds, baseUrl: baseUrl);
+  factory ApiService(Dio dioBinds) {
+    return _ApiService(dioBinds, baseUrl:NetworkProperties.baseUrl );
   }
 
+
   @POST(UrlConstants.login)
-  Future<HttpResponse<LoginResponse>> login(Map<String, dynamic> data);
+  Future<HttpResponse<LoginResponse>> login(@Body() LoginRequest data);
+
+  @POST(UrlConstants.fetchBrands)
+  Future<HttpResponse<LoginResponse>> fetchBrands(@Body() FetchBrandRequest data);
+
+  @POST(UrlConstants.fetchCategory)
+  Future<HttpResponse<LoginResponse>> fetchCategories(@Body() FetchCategoryRequest data);
+
 }

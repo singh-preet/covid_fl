@@ -11,11 +11,11 @@ class HomeRepository {
 
   HomeRepository({required this.apiService, required this.dioBind});
 
-  Future<Either<NetworkError, LoginResponse>> login(
-      Map<String, dynamic> body) async {
-    final data = await safeApiCall(apiService!.login(body));
-    return data.fold((l) => Left(l), (r) {
-      return Right(r.data);
-    });
-  }
+  // Future<Either<NetworkError, LoginResponse>> login(
+  //     Map<String, dynamic> body) async {
+  //   final data = await safeApiCall(apiService!.login(data: body));
+  //   return data.fold((l) => Left(l), (r) {
+  //     return Right(r.data);
+  //   });
+  // }
 }
