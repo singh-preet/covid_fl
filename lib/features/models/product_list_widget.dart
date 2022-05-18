@@ -7,25 +7,14 @@ import '../utils/app_colors.dart';
 import '../utils/style_manager.dart';
 
 class ProductListWidget extends StatelessWidget {
+  final ProductListController productListController = Get.find();
   final List<ProductListModel> data;
   ProductListWidget({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          titleSpacing: 0,
-          automaticallyImplyLeading: false,
-          leading: Icon(
-            Icons.arrow_back_ios,
-            color: AppColors.black,
-          ),
-          backgroundColor: AppColors.backgroundColor,
-          title: Text(
-            'Samsung Products',
-            style: StyleManager.regularBlack(fontSize: 16),
-          ),
-        ),
+        appBar: AppBar(title: Text("Brand"), ),
         body: Column(
           children: [
             Expanded(
