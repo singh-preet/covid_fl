@@ -5,11 +5,11 @@ import 'package:covid_fl/data/network/utils/safe_api_call.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-class HomeRepository {
-  final Dio dioBind;
+class LoginRepository {
+  // final Dio dioBind;
   final ApiService? apiService;
 
-  HomeRepository({required this.apiService, required this.dioBind});
+  LoginRepository({required this.apiService});
 
   Future<Either<NetworkError, LoginResponse>> login(
       Map<String, dynamic> body) async {

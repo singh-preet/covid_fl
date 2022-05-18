@@ -1,3 +1,5 @@
+import 'package:covid_fl/bindings/api_service_binding.dart';
+import 'package:covid_fl/bindings/dio_binding.dart';
 import 'package:covid_fl/bindings/home_binding.dart';
 import 'package:covid_fl/bindings/login_binding.dart';
 import 'package:covid_fl/bindings/splash_binding.dart';
@@ -21,7 +23,7 @@ class AppPages {
         binding: SplashBinding()),
     GetPage(name: Routes.HOME, page: () => Home(), bindings: [HomeBinding(),BrandListBinding(),ProductListBinding()]),
     GetPage(
-        name: Routes.LOGIN, page: () => LoginScreen(), binding: LoginBinding()),
+        name: Routes.LOGIN, page: () => LoginScreen(), bindings: [ApiServiceBinds(),DioBinds(), LoginBinding(),]),
     // GetPage(
     //     name: Routes.BRANDS_LIST,
     //     page: () => BrandListWidget(),
