@@ -3,6 +3,7 @@ import 'package:covid_fl/features/splash_screen/splash_screen.dart';
 import 'package:covid_fl/routes/app_pages.dart';
 import 'package:covid_fl/routes/app_routes.dart';
 import 'package:covid_fl/utils/app_colors.dart';
+import 'package:covid_fl/utils/app_preferences.dart';
 import 'package:covid_fl/utils/string_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,14 +21,16 @@ class _AppState extends State<App> {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: SplashBinding(),
-      initialRoute: Routes.LOGIN,
+      initialRoute:
+          (AppPreferences.userId.isNotEmpty && AppPreferences.appId.isNotEmpty)
+              ? Routes.HOME
+              : Routes.LOGIN,
       getPages: AppPages.pages,
       title: StringConstant.APP_NAME,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        accentColor: AppColors.backgroundColor,
-        backgroundColor: AppColors.backgroundColor
-      ),
+          primarySwatch: Colors.blue,
+          accentColor: AppColors.backgroundColor,
+          backgroundColor: AppColors.backgroundColor),
       home: SplashScreen(),
     );
   }

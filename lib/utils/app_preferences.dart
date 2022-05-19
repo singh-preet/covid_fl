@@ -27,9 +27,8 @@ class AppPreferences{
 
 
   ///keys
-  static String superAdmin = 'superAdmin';
-  static String userid = 'userid';
-  static String company = 'company';
+  static String appId = 'appId';
+  static String userId = 'userId';
 
 
   /// sets methods

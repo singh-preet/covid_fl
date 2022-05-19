@@ -1,9 +1,32 @@
 import 'package:covid_fl/data/models/brand_model.dart';
 import 'package:covid_fl/data/models/order_model.dart';
+import 'package:covid_fl/data/models/response_model/category_response.dart';
+import 'package:covid_fl/data/network/http_service.dart';
+import 'package:covid_fl/utils/app_preferences.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
 class HomeController extends GetxController {
+  CategoryResponse? categories;
+  List<Tab> tabs = [
+    Tab(
+      child: Text("Brands"),
+    ),
+    Tab(
+      child: Text("Categories"),
+    ),
+    Tab(
+      icon: Text("Orders"),
+    ),
+  ];
+
+  getCategories() async{
+    CategoryResponse data = await HttpService.fetchCategories(
+        {"userId": AppPreferences.getString(AppPreferences.userId) , "appId":  AppPreferences.getString(AppPreferences.appId)});
+  categories = data;
+  }
+
   List<BrandModel> brandData = [
     BrandModel(name: "Samsung", remarks: "some remarks"),
     BrandModel(name: "Apple", remarks: ""),

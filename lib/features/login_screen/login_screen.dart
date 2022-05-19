@@ -25,16 +25,13 @@ class LoginScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: TextFormField(
-                  keyboardType: TextInputType.phone,
+                  controller: controller.email,
+                  keyboardType: TextInputType.emailAddress,
                   cursorColor: AppColors.black,
                   style: StyleManager.regularBlack(),
                   decoration: InputDecoration(
-                    suffix: Icon(Icons.phone, color: Colors.black),
-                    prefix: Text(
-                      "+44-",
-                      style: StyleManager.regularBlack(),
-                    ),
-                    labelText: "Phone",
+                    suffix: Icon(Icons.email_outlined, color: Colors.black),
+                    labelText: "Email",
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.orange),
                     ),
@@ -47,6 +44,29 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: TextFormField(
+                  controller: controller.password,
+                  keyboardType: TextInputType.visiblePassword,
+                  cursorColor: AppColors.black,
+                  style: StyleManager.regularBlack(),
+                  decoration: InputDecoration(
+                    suffix: Icon(Icons.remove_red_eye, color: Colors.black),
+                    labelText: "Password",
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.orange),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.orange),
+                    ),
+                    border: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black26)),
+                    labelStyle: StyleManager.regularBlack(fontSize: 16),
+                  ),
+                ),
+              ),
+
               SizedBox(
                 height: 30,
               ),

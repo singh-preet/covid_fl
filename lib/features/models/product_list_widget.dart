@@ -1,14 +1,15 @@
 import 'package:covid_fl/controllers/product_list_controller.dart';
-import 'package:covid_fl/widgets/product_detail_screen.dart';
+import 'package:covid_fl/data/models/response_model/models_response.dart';
+import 'package:covid_fl/features/models/product_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/product_detail_controller.dart';
-import '../utils/app_colors.dart';
-import '../utils/style_manager.dart';
+import '../../controllers/product_detail_controller.dart';
+import '../../utils/app_colors.dart';
+import '../../utils/style_manager.dart';
 
 class ProductListWidget extends StatelessWidget {
   final ProductListController productListController = Get.find();
-  final List<ProductListModel> data;
+  final ModelsResponse data;
   ProductListWidget({Key? key, required this.data}) : super(key: key);
 
   @override
@@ -19,14 +20,14 @@ class ProductListWidget extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
-                  itemCount: data.length,
+                  itemCount: data.data.length,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ProductWidget(
-                        name: data[index].prodName,
-                        price: data[index].price,
-                        serviceName: data[index].serviceName,
+                        name: "data[index].prodName",
+                        price: "data[index].price",
+                        serviceName: "data[index].serviceName",
                       ),
                     );
                   }),
@@ -56,6 +57,7 @@ class ProductWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+
         Navigator.push(
             context,
             MaterialPageRoute(

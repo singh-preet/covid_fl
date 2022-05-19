@@ -3,9 +3,9 @@ import 'package:covid_fl/utils/string_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../utils/app_colors.dart';
-import '../utils/app_images.dart';
-import '../utils/style_manager.dart';
+import '../../utils/app_colors.dart';
+import '../../utils/app_images.dart';
+import '../../utils/style_manager.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   final List<ProductDetailModel> data;

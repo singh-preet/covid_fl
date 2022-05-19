@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-
   /*initialize Pref*/
   await AppPreferences.getInstance();
   runApp(MyApp());
@@ -13,6 +12,7 @@ void main() async{
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print("Before App");
     return App();
   }
 }

@@ -1,10 +1,11 @@
 import 'package:covid_fl/data/models/brand_model.dart';
+import 'package:covid_fl/data/models/response_model/models_response.dart';
 import 'package:covid_fl/utils/style_manager.dart';
-import 'package:covid_fl/widgets/product_list_widget.dart';
+import 'package:covid_fl/features/models/product_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/product_list_controller.dart';
-import '../utils/app_colors.dart';
+import '../../controllers/product_list_controller.dart';
+import '../../utils/app_colors.dart';
 
 class BrandListView extends StatelessWidget {
   final List<BrandModel> data;
@@ -49,12 +50,13 @@ class BrandListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
+      onTap: () async{
+        ModelsResponse data = await controller.getModels();
         Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) => ProductListWidget(
-                      data: controller.productData,
+                      data: data,
                     )));
       },
       child: Container(
