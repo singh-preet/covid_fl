@@ -12,7 +12,7 @@ void main() async{
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print("Before App");
+    print(AppPreferences.getString(AppPreferences.userId));
     return App();
   }
 }

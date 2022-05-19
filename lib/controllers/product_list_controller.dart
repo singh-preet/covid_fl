@@ -13,8 +13,8 @@ class ProductListModel {
 class ProductListController extends GetxController {
   Future<ModelsResponse> getModels() async {
     ModelsResponse data = await HttpService.fetchModels({
-      "userId": AppPreferences.userId,
-      "appId": AppPreferences.appId,
+      "userId": AppPreferences.getString(AppPreferences.userId),
+      "appId": AppPreferences.getString(AppPreferences.appId),
       "brandId": "2"
     });
     print(data.message);

@@ -22,7 +22,7 @@ class _AppState extends State<App> {
       debugShowCheckedModeBanner: false,
       initialBinding: SplashBinding(),
       initialRoute:
-          (AppPreferences.userId.isNotEmpty && AppPreferences.appId.isNotEmpty)
+          (AppPreferences.getString(AppPreferences.userId)!=null && AppPreferences.getString(AppPreferences.appId)!=null)
               ? Routes.HOME
               : Routes.LOGIN,
       getPages: AppPages.pages,

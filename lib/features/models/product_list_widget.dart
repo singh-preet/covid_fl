@@ -15,7 +15,9 @@ class ProductListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Brand"), ),
+        appBar: AppBar(
+          title: Text("Brand"),
+        ),
         body: Column(
           children: [
             Expanded(
@@ -25,9 +27,8 @@ class ProductListWidget extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ProductWidget(
-                        name: "data[index].prodName",
-                        price: "data[index].price",
-                        serviceName: "data[index].serviceName",
+                        name: data.data[index].modelName,
+                        serviceData: data.data[index].serviceList,
                       ),
                     );
                   }),
@@ -43,26 +44,25 @@ class ProductListWidget extends StatelessWidget {
 
 class ProductWidget extends StatelessWidget {
   final String name;
-  final String serviceName, price;
+  final List<ServiceList> serviceData;
   final ProductDetailController controller = Get.put(ProductDetailController());
 
   ProductWidget({
     Key? key,
     required this.name,
-    required this.serviceName,
-    required this.price,
+    required this.serviceData,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-
+        print(serviceData);
         Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) => ProductDetailScreen(
-                    data: controller.prodDetailData, prodName: name)));
+                    data: controller.prodDetailData, prodName: name, serviceData: serviceData,)));
       },
       child: Container(
         padding: EdgeInsets.all(8),
@@ -94,14 +94,6 @@ class ProductWidget extends StatelessWidget {
                   ),
                 )
               ],
-            ),
-            Text(
-              serviceName,
-              style: StyleManager.bold(color: AppColors.unselectedTab),
-            ),
-            Text(
-              price,
-              style: StyleManager.bold(color: AppColors.unselectedTab),
             ),
           ],
         ),
