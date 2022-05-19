@@ -1,5 +1,6 @@
 import 'package:covid_fl/controllers/product_detail_controller.dart';
 import 'package:flutter/material.dart';
+
 import 'package:covid_fl/data/models/response_model/models_response.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -46,7 +47,6 @@ class ProductDetailScreen extends StatelessWidget {
 class DetailWidget extends StatelessWidget {
   final String prodName, price;
 
-
   const DetailWidget({Key? key, required this.prodName, required this.price})
       : super(key: key);
 
@@ -56,9 +56,7 @@ class DetailWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(prodName),
-        TextField(
-          controller: TextEditingController(text: price),
-        ),
+        Text(price),
       ],
     );
   }
