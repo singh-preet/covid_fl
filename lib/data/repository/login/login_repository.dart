@@ -1,10 +1,9 @@
-import 'package:covid_fl/data/models/request_model/login_request.dart';
 import 'package:covid_fl/data/models/response_model/login_response.dart';
 import 'package:covid_fl/data/network/api_service.dart';
+import 'package:covid_fl/data/network/http_service.dart';
 import 'package:covid_fl/data/network/utils/network_error.dart';
 import 'package:covid_fl/data/network/utils/safe_api_call.dart';
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 
 class LoginRepository {
   // final Dio dioBind;
@@ -13,10 +12,11 @@ class LoginRepository {
   LoginRepository({required this.apiService});
 
   Future<Either<NetworkError, LoginResponse>> login(
-      LoginRequest body) async {
-    final data = await safeApiCall(apiService!.login(body));
+      Map<String, dynamic> body) async {
+    // final data = await safeApiCall(apiService!.login(body));
+    final data = await safeApiCall(HttpService.login(body));
     return data.fold((l) => Left(l), (r) {
-      return Right(r.data);
+      return Right(r);
     });
   }
 }

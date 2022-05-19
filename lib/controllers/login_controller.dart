@@ -9,13 +9,19 @@ import 'package:get/get.dart';
 class LoginController extends GetxController {
   final LoginRepository loginRepository;
   LoginController(this.loginRepository);
-TextEditingController email = TextEditingController();
-TextEditingController password = TextEditingController();
-
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
 
   onLoginButtonPress() async {
-    print(email.text);
-    print(password.text);
+    // var data = await loginRepository
+    //     .login({"email": email.text, "password": password.text});
+    // data.fold((l) =>
+    //     Get.rawSnackbar(message: l.errorMsg)
+    //     , (r) {
+    //   AppPreferences.setString("appId", r.appId);
+    //   AppPreferences.setString("userId", r.userId);
+    //   Get.offAndToNamed(Routes.HOME);
+    // });
     LoginResponse data = await HttpService.login(
         {"email": email.text, "password": password.text});
     if( data.status==200){
@@ -25,6 +31,5 @@ TextEditingController password = TextEditingController();
     }else{
       Get.rawSnackbar(message: data.message);
     }
-
   }
 }
