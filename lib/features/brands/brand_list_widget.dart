@@ -1,4 +1,5 @@
 import 'package:covid_fl/data/models/brand_model.dart';
+import 'package:covid_fl/data/models/response_model/brand_response.dart';
 import 'package:covid_fl/data/models/response_model/models_response.dart';
 import 'package:covid_fl/utils/style_manager.dart';
 import 'package:covid_fl/features/models/product_list_widget.dart';
@@ -8,7 +9,7 @@ import '../../controllers/product_list_controller.dart';
 import '../../utils/app_colors.dart';
 
 class BrandListView extends StatelessWidget {
-  final List<BrandModel> data;
+  final BrandResponse? data;
   const BrandListView({
     Key? key,
     required this.data,
@@ -16,25 +17,29 @@ class BrandListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: data.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: BrandListWidget(
-                    brandName: data[index].name,
-                    remarks: data[index].remarks,
-                  ),
-                );
-              }),
-        ),
-        ElevatedButton(onPressed: () {}, child: Text("Add new Brand")),
-      ],
-    );
+    return data == null
+        ? Center(
+            child: CircularProgressIndicator(),
+          )
+        : Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: data!.data.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: BrandListWidget(
+                          brandName: data!.data[index].brandName,
+                          remarks: data!.data[index].brandUrl,
+                        ),
+                      );
+                    }),
+              ),
+              ElevatedButton(onPressed: () {}, child: Text("Add new Brand")),
+            ],
+          );
   }
 }
 
@@ -50,7 +55,7 @@ class BrandListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () async{
+      onTap: () async {
         ModelsResponse data = await controller.getModels();
         Navigator.push(
             context,

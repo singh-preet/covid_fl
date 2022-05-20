@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(initState: (_) {
-      controller.getCategories();
+      controller.getHomePageData();
     }, builder: (controller) {
       return DefaultTabController(
         length: 3,
@@ -49,7 +49,7 @@ class Home extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              BrandListView(data: controller.brandData),
+              BrandListView(data: controller.brands),
               CategoryList(categoryResponse: controller.categories),
               Orders(data: controller.orderData),
             ],

@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:covid_fl/data/models/request_model/fetch_category_request.dart';
 import 'package:covid_fl/data/models/response_model/brand_response.dart';
 import 'package:covid_fl/data/models/response_model/category_response.dart';
 import 'package:covid_fl/data/models/response_model/login_response.dart';
@@ -9,7 +8,6 @@ import 'package:covid_fl/utils/url_constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
-import '../models/request_model/fetch_models_request.dart';
 
 class HttpService {
   HttpService._();
@@ -34,9 +32,10 @@ class HttpService {
     return value;
   }
 
-  //ToDo: Incorrect Model
   static Future<BrandResponse> fetchBrands(
       Map<String, dynamic> body) async {
+    print(NetworkProperties.baseUrl + UrlConstants.fetchBrands);
+    print(body);
     Response _result = await http.post(
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.fetchBrands),
         body: body);

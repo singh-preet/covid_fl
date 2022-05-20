@@ -1,14 +1,15 @@
 import 'package:covid_fl/data/models/brand_model.dart';
 import 'package:covid_fl/data/models/order_model.dart';
+import 'package:covid_fl/data/models/response_model/brand_response.dart';
 import 'package:covid_fl/data/models/response_model/category_response.dart';
 import 'package:covid_fl/data/network/http_service.dart';
 import 'package:covid_fl/utils/app_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class HomeController extends GetxController {
   CategoryResponse? categories;
+  BrandResponse? brands;
   List<Tab> tabs = [
     Tab(
       child: Text("Brands"),
@@ -21,10 +22,18 @@ class HomeController extends GetxController {
     ),
   ];
 
-  getCategories() async{
-    CategoryResponse data = await HttpService.fetchCategories(
-        {"userId": AppPreferences.getString(AppPreferences.userId) , "appId":  AppPreferences.getString(AppPreferences.appId)});
-  categories = data;
+  getHomePageData() async {
+    CategoryResponse data = await HttpService.fetchCategories({
+      "userId": AppPreferences.getString(AppPreferences.userId),
+      "appId": AppPreferences.getString(AppPreferences.appId)
+    });
+    categories = data;
+    brands = await HttpService.fetchBrands({
+      "categoryId": "1",
+      "userId": AppPreferences.getString(AppPreferences.userId),
+      "appId": AppPreferences.getString(AppPreferences.appId)
+    });
+    update();
   }
 
   List<BrandModel> brandData = [
@@ -40,14 +49,14 @@ class HomeController extends GetxController {
         email: "baani.sunpreet@gmail.com",
         amount: "200",
         customerName: "Sunpreet Singh",
-        deviceName: "Sony",services:["Screen Damage", "Camera Repair"]),
+        deviceName: "Sony",
+        services: ["Screen Damage", "Camera Repair"]),
     OrderModel(
         phone: "9873575079",
         email: "sunpreet@gmail.com",
-        amount: "200",services:["Screen Damage", "Camera Repair"],
+        amount: "200",
+        services: ["Screen Damage", "Camera Repair"],
         customerName: "Aman Singh",
         deviceName: "iPhone")
   ];
-
-
 }
