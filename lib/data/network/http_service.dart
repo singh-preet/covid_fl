@@ -8,7 +8,6 @@ import 'package:covid_fl/utils/url_constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
-
 class HttpService {
   HttpService._();
 
@@ -17,8 +16,6 @@ class HttpService {
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.login),
         body: body);
     final value = LoginResponse.fromJson(jsonDecode(_result.body));
-    print(jsonDecode(_result.body));
-
     return value;
   }
 
@@ -28,31 +25,22 @@ class HttpService {
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.fetchCategory),
         body: body);
     final value = CategoryResponse.fromJson(jsonDecode(_result.body));
-    print(jsonDecode(_result.body));
     return value;
   }
 
-  static Future<BrandResponse> fetchBrands(
-      Map<String, dynamic> body) async {
-    print(NetworkProperties.baseUrl + UrlConstants.fetchBrands);
-    print(body);
+  static Future<BrandResponse> fetchBrands(Map<String, dynamic> body) async {
     Response _result = await http.post(
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.fetchBrands),
         body: body);
     final value = BrandResponse.fromJson(jsonDecode(_result.body));
-    print(jsonDecode(_result.body));
     return value;
   }
 
-  static Future<ModelsResponse> fetchModels(
-      Map<String, dynamic> body) async {
-    print(body);
+  static Future<ModelsResponse> fetchModels(Map<String, dynamic> body) async {
     Response _result = await http.post(
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.fetchModels),
         body: body);
-    print(jsonDecode(_result.body));
     final value = ModelsResponse.fromJson(jsonDecode(_result.body));
-    print(value.data);
     return value;
   }
 }

@@ -29,6 +29,8 @@ dependencies:
   build_runner: any
   logger: any
   pretty_dio_logger: ^1.1.1
+  image_crop: ^0.4.0
+  image_picker: ^0.8.5+3
 
 
 

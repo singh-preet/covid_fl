@@ -1,16 +1,12 @@
-import 'package:covid_fl/controllers/product_detail_controller.dart';
 import 'package:flutter/material.dart';
-
 import 'package:covid_fl/data/models/response_model/models_response.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  final List<ProductDetailModel> data;
   final String prodName;
   final List<ServiceList> serviceData;
 
   const ProductDetailScreen(
       {Key? key,
-      required this.data,
       required this.prodName,
       required this.serviceData})
       : super(key: key);
@@ -19,8 +15,7 @@ class ProductDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-        'Service list'),
+        title: Text(prodName),
       ),
       body: SafeArea(
           child: ListView.builder(

@@ -1,4 +1,3 @@
-import 'package:covid_fl/data/models/brand_model.dart';
 import 'package:covid_fl/data/models/response_model/brand_response.dart';
 import 'package:covid_fl/data/models/response_model/models_response.dart';
 import 'package:covid_fl/utils/style_manager.dart';
@@ -33,11 +32,12 @@ class BrandListView extends StatelessWidget {
                         child: BrandListWidget(
                           brandName: data!.data[index].brandName,
                           remarks: data!.data[index].brandUrl,
+                          brandId: data!.data[index].id,
                         ),
                       );
                     }),
               ),
-              ElevatedButton(onPressed: () {}, child: Text("Add new Brand")),
+              ElevatedButton(onPressed: () {}, child: Text("New Brand")),
             ],
           );
   }
@@ -45,23 +45,25 @@ class BrandListView extends StatelessWidget {
 
 class BrandListWidget extends StatelessWidget {
   final ProductListController controller = Get.put(ProductListController());
-  final String brandName, remarks;
+  final String brandName, remarks, brandId;
   BrandListWidget({
     Key? key,
     required this.brandName,
     required this.remarks,
+    required this.brandId,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () async {
-        ModelsResponse data = await controller.getModels();
+        ModelsResponse data = await controller.getModels(brandId);
         Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) => ProductListWidget(
                       data: data,
+                      brandName: brandName,
                     )));
       },
       child: Container(
@@ -85,6 +87,13 @@ class BrandListWidget extends StatelessWidget {
                 IconButton(
                   onPressed: () => Get.defaultDialog(
                       title: brandName,
+                      actions: [
+                        OutlinedButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            child: Text("Update")),
+                      ],
                       content: EditBrandDialog(),
                       barrierDismissible: false),
                   icon: Icon(
@@ -123,14 +132,6 @@ class EditBrandDialog extends StatelessWidget {
             TextFormField(
               decoration: InputDecoration(labelText: "Brand Name"),
             ),
-            TextFormField(
-              decoration: InputDecoration(labelText: "Remarks"),
-            ),
-            OutlinedButton(
-                onPressed: () {
-                  Get.back();
-                },
-                child: Text("Update"))
           ],
         ),
       ),

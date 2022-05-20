@@ -10,13 +10,14 @@ import '../../utils/style_manager.dart';
 class ProductListWidget extends StatelessWidget {
   final ProductListController productListController = Get.find();
   final ModelsResponse data;
-  ProductListWidget({Key? key, required this.data}) : super(key: key);
+  final String brandName;
+  ProductListWidget({Key? key, required this.data, required this.brandName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Brand"),
+          title: Text(brandName),
         ),
         body: Column(
           children: [
@@ -57,12 +58,11 @@ class ProductWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        print(serviceData);
         Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) => ProductDetailScreen(
-                    data: controller.prodDetailData, prodName: name, serviceData: serviceData,)));
+                     prodName: name, serviceData: serviceData,)));
       },
       child: Container(
         padding: EdgeInsets.all(8),
