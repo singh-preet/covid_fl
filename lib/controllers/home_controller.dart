@@ -1,21 +1,19 @@
-import 'package:covid_fl/data/models/brand_model.dart';
 import 'package:covid_fl/data/models/order_model.dart';
 import 'package:covid_fl/data/models/response_model/brand_response.dart';
-import 'package:covid_fl/data/models/response_model/category_response.dart';
 import 'package:covid_fl/data/network/http_service.dart';
 import 'package:covid_fl/utils/app_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  CategoryResponse? categories;
+  BrandResponse? categories;
   BrandResponse? brands;
   List<Tab> tabs = [
     Tab(
-      child: Text("Brands"),
+      child: Text("Phones"),
     ),
     Tab(
-      child: Text("Categories"),
+      child: Text("Laptops"),
     ),
     Tab(
       icon: Text("Orders"),
@@ -23,11 +21,11 @@ class HomeController extends GetxController {
   ];
 
   getHomePageData() async {
-    CategoryResponse data = await HttpService.fetchCategories({
+     categories = await HttpService.fetchBrands({
+      "categoryId": "2",
       "userId": AppPreferences.getString(AppPreferences.userId),
       "appId": AppPreferences.getString(AppPreferences.appId)
     });
-    categories = data;
     brands = await HttpService.fetchBrands({
       "categoryId": "1",
       "userId": AppPreferences.getString(AppPreferences.userId),
@@ -36,12 +34,6 @@ class HomeController extends GetxController {
     update();
   }
 
-  List<BrandModel> brandData = [
-    BrandModel(name: "Samsung", remarks: "some remarks"),
-    BrandModel(name: "Apple", remarks: ""),
-    BrandModel(name: "Huawei", remarks: "some remarks"),
-    BrandModel(name: "Sony", remarks: ""),
-  ];
 
   List<OrderModel> orderData = [
     OrderModel(

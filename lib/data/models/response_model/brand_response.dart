@@ -18,9 +18,7 @@ class BrandResponse {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['message'] = this.message;
     data['status'] = this.status;
-    if (this.data != null) {
       data['data'] = this.data.map((v) => v.toJson()).toList();
-    }
     return data;
   }
 }
