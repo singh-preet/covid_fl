@@ -1,8 +1,8 @@
-import 'package:covid_fl/controllers/service_detail_controller.dart';
-import 'package:covid_fl/data/models/response_model/models_response.dart';
-import 'package:covid_fl/features/models/edit_model_dialog.dart';
+import 'package:phone_tech_london/controllers/service_detail_controller.dart';
+import 'package:phone_tech_london/data/models/response_model/models_response.dart';
+import 'package:phone_tech_london/features/models/edit_model_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:covid_fl/features/service/service_detail_screen.dart';
+import 'package:phone_tech_london/features/service/service_detail_screen.dart';
 import 'package:get/get.dart';
 import '../../controllers/service_detail_controller.dart';
 import '../../utils/app_colors.dart';
@@ -27,9 +27,9 @@ class ModelTile extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => ServiceDetailScreen(
-                  prodName: name,
-                  serviceData: serviceData,
-                )));
+                      prodName: name,
+                      serviceData: serviceData,
+                    )));
       },
       child: Container(
         padding: EdgeInsets.all(8),

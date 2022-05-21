@@ -1,15 +1,12 @@
-<<<<<<< Updated upstream:lib/features/service/service_detail_screen.dart
-import 'package:covid_fl/controllers/service_detail_controller.dart';
-import 'package:covid_fl/data/models/response_model/update_response.dart';
-import 'package:covid_fl/features/service/service_tile.dart';
-import 'package:covid_fl/routes/app_routes.dart';
-import 'package:covid_fl/utils/app_colors.dart';
-=======
+import 'package:phone_tech_london/controllers/service_detail_controller.dart';
+import 'package:phone_tech_london/data/models/response_model/update_response.dart';
+import 'package:phone_tech_london/features/service/service_tile.dart';
+import 'package:phone_tech_london/routes/app_routes.dart';
+import 'package:phone_tech_london/utils/app_colors.dart';
 import 'package:phone_tech_london/controllers/service_detail_controller.dart';
 import 'package:phone_tech_london/data/models/response_model/update_response.dart';
 import 'package:phone_tech_london/routes/app_routes.dart';
 import 'package:phone_tech_london/utils/app_colors.dart';
->>>>>>> Stashed changes:lib/features/models/service_detail_screen.dart
 import 'package:flutter/material.dart';
 import 'package:phone_tech_london/data/models/response_model/models_response.dart';
 import 'package:get/get.dart';

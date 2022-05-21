@@ -1,18 +1,12 @@
-<<<<<<< Updated upstream:lib/features/brand_phones/brand_tile.dart
-import 'package:covid_fl/controllers/model_list_controller.dart';
-import 'package:covid_fl/data/models/response_model/models_response.dart';
-import 'package:covid_fl/features/brand_phones/edit_brand_dialog.dart';
-import 'package:covid_fl/features/models/model_list_widget.dart';
-import 'package:covid_fl/utils/app_colors.dart';
-import 'package:covid_fl/utils/style_manager.dart';
-=======
-import 'package:phone_tech_london/data/models/response_model/brand_response.dart';
+import 'package:phone_tech_london/controllers/model_list_controller.dart';
 import 'package:phone_tech_london/data/models/response_model/models_response.dart';
-import 'package:phone_tech_london/utils/style_manager.dart';
 import 'package:phone_tech_london/features/models/model_list_widget.dart';
->>>>>>> Stashed changes:lib/features/phones/mobile_list_widget.dart
+import 'package:phone_tech_london/utils/app_colors.dart';
+import 'package:phone_tech_london/utils/style_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'edit_brand_dialog.dart';
 
 class BrandTile extends StatelessWidget {
   final ProductListController controller = Get.put(ProductListController());
@@ -33,10 +27,9 @@ class BrandTile extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => ModelList(
-                  data: data,
-                  brandName: brandName,
-
-                )));
+                      data: data,
+                      brandName: brandName,
+                    )));
       },
       child: Container(
         padding: EdgeInsets.all(8),

@@ -1,13 +1,12 @@
-<<<<<<< Updated upstream
-import 'package:covid_fl/data/models/response_model/brand_response.dart';
-import 'package:covid_fl/routes/app_routes.dart';
-import 'package:covid_fl/utils/style_manager.dart';
-import 'package:flutter/cupertino.dart';
-=======
 import 'package:phone_tech_london/data/models/response_model/brand_response.dart';
 import 'package:phone_tech_london/routes/app_routes.dart';
 import 'package:phone_tech_london/utils/style_manager.dart';
->>>>>>> Stashed changes
+import 'package:flutter/cupertino.dart';
+
+import 'package:phone_tech_london/data/models/response_model/brand_response.dart';
+import 'package:phone_tech_london/routes/app_routes.dart';
+import 'package:phone_tech_london/utils/style_manager.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

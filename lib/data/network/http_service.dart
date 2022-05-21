@@ -1,15 +1,5 @@
 import 'dart:convert';
-<<<<<<< Updated upstream
-import 'package:covid_fl/data/models/response_model/add_model_response.dart';
-import 'package:covid_fl/data/models/response_model/brand_response.dart';
-import 'package:covid_fl/data/models/response_model/category_response.dart';
-import 'package:covid_fl/data/models/response_model/login_response.dart';
-import 'package:covid_fl/data/models/response_model/models_response.dart';
-import 'package:covid_fl/data/models/response_model/order_response.dart';
-import 'package:covid_fl/data/models/response_model/update_response.dart';
-import 'package:covid_fl/data/network/network_properties.dart';
-import 'package:covid_fl/utils/url_constants.dart';
-=======
+import 'package:phone_tech_london/data/models/response_model/add_model_response.dart';
 import 'package:phone_tech_london/data/models/response_model/brand_response.dart';
 import 'package:phone_tech_london/data/models/response_model/category_response.dart';
 import 'package:phone_tech_london/data/models/response_model/login_response.dart';
@@ -18,7 +8,7 @@ import 'package:phone_tech_london/data/models/response_model/order_response.dart
 import 'package:phone_tech_london/data/models/response_model/update_response.dart';
 import 'package:phone_tech_london/data/network/network_properties.dart';
 import 'package:phone_tech_london/utils/url_constants.dart';
->>>>>>> Stashed changes
+
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
@@ -76,11 +66,6 @@ class HttpService {
   }
 
   static Future<UpdateResponse> editServices(Map<String, dynamic> body) async {
-<<<<<<< Updated upstream
-=======
-    print(NetworkProperties.baseUrl + UrlConstants.editServices);
-    print(body);
->>>>>>> Stashed changes
     Response _result = await http.post(
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.editServices),
         body: body);

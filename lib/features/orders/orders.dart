@@ -1,11 +1,9 @@
-<<<<<<< Updated upstream
-import 'package:covid_fl/data/models/response_model/order_response.dart';
-import 'package:covid_fl/features/orders/orderTile.dart';
-import 'package:flutter/cupertino.dart';
-=======
+
 import 'package:phone_tech_london/data/models/response_model/order_response.dart';
 import 'package:phone_tech_london/features/orders/orderTile.dart';
->>>>>>> Stashed changes
+import 'package:flutter/cupertino.dart';
+import 'package:phone_tech_london/data/models/response_model/order_response.dart';
+import 'package:phone_tech_london/features/orders/orderTile.dart';
 import 'package:flutter/material.dart';
 
 class Orders extends StatelessWidget {

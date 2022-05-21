@@ -1,5 +1,5 @@
-import 'package:covid_fl/data/models/response_model/brand_response.dart';
-import 'package:covid_fl/features/brand_phones/brand_tile.dart';
+import 'package:phone_tech_london/data/models/response_model/brand_response.dart';
+import 'package:phone_tech_london/features/brand_phones/brand_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +9,6 @@ class BrandListView extends StatelessWidget {
     Key? key,
     required this.data,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +35,6 @@ class BrandListView extends StatelessWidget {
               ),
               ElevatedButton(onPressed: () {}, child: Text("New Brand")),
             ],
-    );
+          );
   }
 }
