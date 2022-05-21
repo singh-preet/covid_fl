@@ -1,5 +1,6 @@
 import 'package:covid_fl/controllers/service_detail_controller.dart';
 import 'package:covid_fl/data/models/response_model/update_response.dart';
+import 'package:covid_fl/routes/app_routes.dart';
 import 'package:covid_fl/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:covid_fl/data/models/response_model/models_response.dart';
@@ -54,7 +55,8 @@ class ServiceDetailScreen extends StatelessWidget {
                                         serviceDetailController
                                             .updateService(
                                                 serviceData[index].sId,
-                                                serviceData[index].amount)
+                                                serviceDetailController
+                                                    .charges.text)
                                             .then((UpdateResponse value) {
                                           if (value.status == 200 &&
                                               value.message == "Success") {
@@ -66,7 +68,7 @@ class ServiceDetailScreen extends StatelessWidget {
                                                 backgroundColor: Colors.red);
                                           }
                                         });
-                                        Get.back();
+                                        Get.offAllNamed(Routes.HOME);
                                       },
                                       child: Text("Update"),
                                       color: AppColors.lightOrange,

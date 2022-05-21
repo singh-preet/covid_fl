@@ -39,6 +39,7 @@ class HttpService {
   }
 
   static Future<ModelsResponse> fetchModels(Map<String, dynamic> body) async {
+    print("Fetch Models called");
     Response _result = await http.post(
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.fetchModels),
         body: body);

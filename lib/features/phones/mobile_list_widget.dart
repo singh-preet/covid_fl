@@ -104,10 +104,6 @@ class BrandListWidget extends StatelessWidget {
                 )
               ],
             ),
-            // Text(
-            //   remarks,
-            //   style: StyleManager.regularBlack(fontSize: 12),
-            // ),
           ],
         ),
       ),
