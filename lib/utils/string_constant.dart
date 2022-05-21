@@ -8,5 +8,9 @@ class StringConstant {
   static const String PROCEED_TO_PAY = "Proceed to Pay";
   static const String TOTAL = "Total";
 
+  ///Tabs
+  static const String PHONES = "Phones";
+  static const String LAPTOPS = "Laptops";
+  static const String ORDERS = "Orders";
 
 }

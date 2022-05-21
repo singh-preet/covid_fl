@@ -2,6 +2,7 @@ import 'package:covid_fl/data/models/response_model/brand_response.dart';
 import 'package:covid_fl/data/models/response_model/order_response.dart';
 import 'package:covid_fl/data/network/http_service.dart';
 import 'package:covid_fl/utils/app_preferences.dart';
+import 'package:covid_fl/utils/string_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,19 +12,18 @@ class HomeController extends GetxController {
   OrdersResponse? orders;
   List<Tab> tabs = [
     Tab(
-      child: Text("Phones"),
+      child: Text(StringConstant.PHONES),
     ),
     Tab(
-      child: Text("Laptops"),
+      child: Text(StringConstant.LAPTOPS),
     ),
     Tab(
-      icon: Text("Orders"),
-    ),
+      icon: Text(StringConstant.ORDERS),
+    )
   ];
 
   getHomePageData() async {
-
-     categories = await HttpService.fetchBrands({
+    categories = await HttpService.fetchBrands({
       "categoryId": "2",
       "userId": AppPreferences.getString(AppPreferences.userId),
       "appId": AppPreferences.getString(AppPreferences.appId)
@@ -39,6 +39,4 @@ class HomeController extends GetxController {
     });
     update();
   }
-
-
 }

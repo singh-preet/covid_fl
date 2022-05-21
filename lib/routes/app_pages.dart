@@ -11,7 +11,7 @@ import 'package:covid_fl/features/splash_screen/splash_screen.dart';
 import 'package:covid_fl/routes/app_routes.dart';
 import 'package:get/get.dart';
 import '../bindings/brand_list_binding.dart';
-import '../bindings/product_list_binding.dart';
+import '../bindings/models_binding.dart';
 
 class AppPages {
   AppPages._();

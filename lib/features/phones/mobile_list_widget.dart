@@ -1,10 +1,10 @@
 import 'package:covid_fl/data/models/response_model/brand_response.dart';
 import 'package:covid_fl/data/models/response_model/models_response.dart';
 import 'package:covid_fl/utils/style_manager.dart';
-import 'package:covid_fl/features/models/product_list_widget.dart';
+import 'package:covid_fl/features/models/model_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controllers/product_list_controller.dart';
+import '../../controllers/model_list_controller.dart';
 import '../../utils/app_colors.dart';
 
 class BrandListView extends StatelessWidget {
@@ -61,7 +61,7 @@ class BrandListWidget extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => ProductListWidget(
+                builder: (context) => ModelList(
                       data: data,
                       brandName: brandName,
                     )));
@@ -104,10 +104,10 @@ class BrandListWidget extends StatelessWidget {
                 )
               ],
             ),
-            Text(
-              remarks,
-              style: StyleManager.regularBlack(fontSize: 12),
-            ),
+            // Text(
+            //   remarks,
+            //   style: StyleManager.regularBlack(fontSize: 12),
+            // ),
           ],
         ),
       ),

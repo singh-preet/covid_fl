@@ -1,17 +1,17 @@
-import 'package:covid_fl/controllers/product_list_controller.dart';
+import 'package:covid_fl/controllers/model_list_controller.dart';
 import 'package:covid_fl/data/models/response_model/models_response.dart';
-import 'package:covid_fl/features/models/product_detail_screen.dart';
+import 'package:covid_fl/features/models/service_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controllers/product_detail_controller.dart';
+import '../../controllers/service_detail_controller.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/style_manager.dart';
 
-class ProductListWidget extends StatelessWidget {
+class ModelList extends StatelessWidget {
   final ProductListController productListController = Get.find();
   final ModelsResponse data;
   final String brandName;
-  ProductListWidget({Key? key, required this.data, required this.brandName}) : super(key: key);
+  ModelList({Key? key, required this.data, required this.brandName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ProductListWidget extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: ProductWidget(
+                      child: ModelTile(
                         name: data.data[index].modelName,
                         serviceData: data.data[index].serviceList,
                       ),
@@ -43,12 +43,12 @@ class ProductListWidget extends StatelessWidget {
   }
 }
 
-class ProductWidget extends StatelessWidget {
+class ModelTile extends StatelessWidget {
   final String name;
   final List<ServiceList> serviceData;
-  final ProductDetailController controller = Get.put(ProductDetailController());
+  final ServiceDetailController controller = Get.put(ServiceDetailController());
 
-  ProductWidget({
+  ModelTile({
     Key? key,
     required this.name,
     required this.serviceData,
@@ -61,7 +61,7 @@ class ProductWidget extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => ProductDetailScreen(
+                builder: (context) => ServiceDetailScreen(
                      prodName: name, serviceData: serviceData,)));
       },
       child: Container(
@@ -118,12 +118,6 @@ class EditBrandDialog extends StatelessWidget {
           children: [
             TextFormField(
               decoration: InputDecoration(labelText: "Product Name"),
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: "Service Name"),
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: "Price"),
             ),
             OutlinedButton(
                 onPressed: () {
