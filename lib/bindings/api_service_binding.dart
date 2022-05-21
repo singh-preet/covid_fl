@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
-import 'package:covid_fl/data/network/api_service.dart';
+import 'package:phone_tech_london/data/network/api_service.dart';
 
 class ApiServiceBinds extends Bindings {
   @override

@@ -1,8 +1,8 @@
-import 'package:covid_fl/data/models/response_model/login_response.dart';
-import 'package:covid_fl/data/network/api_service.dart';
-import 'package:covid_fl/data/network/http_service.dart';
-import 'package:covid_fl/data/network/utils/network_error.dart';
-import 'package:covid_fl/data/network/utils/safe_api_call.dart';
+import 'package:phone_tech_london/data/models/response_model/login_response.dart';
+import 'package:phone_tech_london/data/network/api_service.dart';
+import 'package:phone_tech_london/data/network/http_service.dart';
+import 'package:phone_tech_london/data/network/utils/network_error.dart';
+import 'package:phone_tech_london/data/network/utils/safe_api_call.dart';
 import 'package:dartz/dartz.dart';
 
 class LoginRepository {

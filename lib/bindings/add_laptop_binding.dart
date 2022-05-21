@@ -1,4 +1,4 @@
-import 'package:covid_fl/controllers/add_laptop_controller.dart';
+import 'package:phone_tech_london/controllers/add_laptop_controller.dart';
 import 'package:get/get.dart';
 
 class AddLaptopBinding extends Bindings {

@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:covid_fl/data/network/utils/network_error.dart';
-import 'package:covid_fl/utils/app_constant.dart';
+import 'package:phone_tech_london/data/network/utils/network_error.dart';
+import 'package:phone_tech_london/utils/app_constant.dart';
 import 'dart:io';
 import 'package:dio/dio.dart';
 
@@ -53,11 +53,11 @@ Future<Either<NetworkError, T>> safeApiCall<T>(Future<T> apiCall) async {
                   message = AppConstant.badRequest;
                   break;
                 case 401:
-                // message = 'Unauthorized';
+                  // message = 'Unauthorized';
                   message = AppConstant.unauthorized;
                   break;
                 case 403:
-                //message = 'Forbidden';
+                  //message = 'Forbidden';
                   message = AppConstant.unauthorized;
                   break;
                 case 404:
@@ -77,9 +77,9 @@ Future<Either<NetworkError, T>> safeApiCall<T>(Future<T> apiCall) async {
               );
             }
             break;
-        //"Received invalid status code: ${error.response.statusCode}";
+          //"Received invalid status code: ${error.response.statusCode}";
           case DioErrorType.cancel:
-          //"Request to API server was cancelled"
+            //"Request to API server was cancelled"
             break;
           case DioErrorType.other:
             return Left(
@@ -100,7 +100,7 @@ Future<Either<NetworkError, T>> safeApiCall<T>(Future<T> apiCall) async {
         );
 
       case HttpException:
-      // var code = throwable.code();
+        // var code = throwable.code();
         return Left(
           NetworkError(
             errorMsg: (throwable as HttpException).message,
@@ -116,7 +116,6 @@ Future<Either<NetworkError, T>> safeApiCall<T>(Future<T> apiCall) async {
     rethrow;
   }
 }
-
 
 extension RetrofitResponse on HttpResponse {
   bool isSuccessful() {

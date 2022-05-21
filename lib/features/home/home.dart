@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import 'package:covid_fl/controllers/home_controller.dart';
 import 'package:covid_fl/features/brand_phones/brand_list_widget.dart';
 import 'package:covid_fl/features/laptop/laptop_grid.dart';
@@ -5,6 +6,15 @@ import 'package:covid_fl/features/orders/orders.dart';
 import 'package:covid_fl/utils/app_colors.dart';
 import 'package:covid_fl/utils/app_images.dart';
 import 'package:covid_fl/utils/string_constant.dart';
+=======
+import 'package:phone_tech_london/controllers/home_controller.dart';
+import 'package:phone_tech_london/features/laptop/laptop_grid.dart';
+import 'package:phone_tech_london/features/orders/orders.dart';
+import 'package:phone_tech_london/features/phones/mobile_list_widget.dart';
+import 'package:phone_tech_london/utils/app_colors.dart';
+import 'package:phone_tech_london/utils/app_images.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
+>>>>>>> Stashed changes
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

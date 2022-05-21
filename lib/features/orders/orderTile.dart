@@ -1,4 +1,4 @@
-import 'package:covid_fl/data/models/response_model/order_response.dart';
+import 'package:phone_tech_london/data/models/response_model/order_response.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
@@ -9,7 +9,7 @@ class OrderTile extends StatelessWidget {
     required this.data,
   }) : super(key: key);
 
-  final  Data data;
+  final Data data;
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +42,14 @@ class OrderTile extends StatelessWidget {
                                 itemBuilder: (context, index) => Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(data.services[index].title),
-                                          Text("£${data.services[index].amount}", textAlign: TextAlign.right),
+                                          Text(
+                                              "£${data.services[index].amount}",
+                                              textAlign: TextAlign.right),
                                         ],
                                       ),
                                     )),

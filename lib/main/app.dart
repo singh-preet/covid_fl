@@ -1,10 +1,10 @@
-import 'package:covid_fl/bindings/splash_binding.dart';
-import 'package:covid_fl/features/splash_screen/splash_screen.dart';
-import 'package:covid_fl/routes/app_pages.dart';
-import 'package:covid_fl/routes/app_routes.dart';
-import 'package:covid_fl/utils/app_colors.dart';
-import 'package:covid_fl/utils/app_preferences.dart';
-import 'package:covid_fl/utils/string_constant.dart';
+import 'package:phone_tech_london/bindings/splash_binding.dart';
+import 'package:phone_tech_london/features/splash_screen/splash_screen.dart';
+import 'package:phone_tech_london/routes/app_pages.dart';
+import 'package:phone_tech_london/routes/app_routes.dart';
+import 'package:phone_tech_london/utils/app_colors.dart';
+import 'package:phone_tech_london/utils/app_preferences.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,10 +21,10 @@ class _AppState extends State<App> {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: SplashBinding(),
-      initialRoute:
-          (AppPreferences.getString(AppPreferences.userId)!=null && AppPreferences.getString(AppPreferences.appId)!=null)
-              ? Routes.HOME
-              : Routes.LOGIN,
+      initialRoute: (AppPreferences.getString(AppPreferences.userId) != null &&
+              AppPreferences.getString(AppPreferences.appId) != null)
+          ? Routes.HOME
+          : Routes.LOGIN,
       getPages: AppPages.pages,
       title: StringConstant.APP_NAME,
       theme: ThemeData(

@@ -1,8 +1,8 @@
-import 'package:covid_fl/main/app.dart';
-import 'package:covid_fl/utils/app_preferences.dart';
+import 'package:phone_tech_london/main/app.dart';
+import 'package:phone_tech_london/utils/app_preferences.dart';
 import 'package:flutter/material.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   /*initialize Pref*/
   await AppPreferences.getInstance();
@@ -15,4 +15,3 @@ class MyApp extends StatelessWidget {
     return App();
   }
 }
-

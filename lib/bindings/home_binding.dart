@@ -1,10 +1,10 @@
-import 'package:covid_fl/controllers/home_controller.dart';
+import 'package:phone_tech_london/controllers/home_controller.dart';
 import 'package:get/get.dart';
 
-class HomeBinding extends Bindings{
+class HomeBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<HomeController>((){
+    Get.lazyPut<HomeController>(() {
       return HomeController();
     });
   }

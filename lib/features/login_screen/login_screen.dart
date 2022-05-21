@@ -1,8 +1,8 @@
-import 'package:covid_fl/controllers/login_controller.dart';
-import 'package:covid_fl/utils/app_colors.dart';
-import 'package:covid_fl/utils/app_images.dart';
-import 'package:covid_fl/utils/string_constant.dart';
-import 'package:covid_fl/utils/style_manager.dart';
+import 'package:phone_tech_london/controllers/login_controller.dart';
+import 'package:phone_tech_london/utils/app_colors.dart';
+import 'package:phone_tech_london/utils/app_images.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
+import 'package:phone_tech_london/utils/style_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -66,7 +66,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
               SizedBox(
                 height: 30,
               ),

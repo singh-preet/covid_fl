@@ -1,8 +1,7 @@
-import 'package:covid_fl/data/models/response_model/models_response.dart';
-import 'package:covid_fl/data/network/http_service.dart';
-import 'package:covid_fl/utils/app_preferences.dart';
+import 'package:phone_tech_london/data/models/response_model/models_response.dart';
+import 'package:phone_tech_london/data/network/http_service.dart';
+import 'package:phone_tech_london/utils/app_preferences.dart';
 import 'package:get/get.dart';
-
 
 class ProductListController extends GetxController {
   Future<ModelsResponse> getModels(String brandId) async {
