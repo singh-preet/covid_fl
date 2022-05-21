@@ -56,10 +56,13 @@ class HttpService {
   }
 
   static Future<UpdateResponse> editServices(Map<String, dynamic> body) async{
+    print(NetworkProperties.baseUrl + UrlConstants.editServices);
+    print(body);
     Response _result = await http.post(
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.editServices),
         body: body);
     final value = UpdateResponse.fromJson(jsonDecode(_result.body));
+    print(jsonDecode(_result.body));
     return value;
   }
 }
