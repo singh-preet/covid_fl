@@ -13,4 +13,17 @@ class ProductListController extends GetxController {
     });
     return data;
   }
+
+  addModel({required String brandId, required String modelName}) async{
+    await HttpService.addModel({
+      "userId": AppPreferences.getString(AppPreferences.userId),
+      "appId": AppPreferences.getString(AppPreferences.appId),
+      "brandId":brandId,
+      "modelName":modelName,
+      "image":""
+    });
+
+  }
+
+
 }

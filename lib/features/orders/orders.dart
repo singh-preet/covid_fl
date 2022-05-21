@@ -1,5 +1,6 @@
 import 'package:covid_fl/data/models/response_model/order_response.dart';
 import 'package:covid_fl/features/orders/orderTile.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Orders extends StatelessWidget {
@@ -8,7 +9,9 @@ class Orders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return
+      data==null?Center(child: CupertinoActivityIndicator(),):
+      Column(
       children: [
         Expanded(
           child: ListView.builder(

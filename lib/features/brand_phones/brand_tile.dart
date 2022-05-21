@@ -1,52 +1,16 @@
-import 'package:covid_fl/data/models/response_model/brand_response.dart';
+import 'package:covid_fl/controllers/model_list_controller.dart';
 import 'package:covid_fl/data/models/response_model/models_response.dart';
-import 'package:covid_fl/utils/style_manager.dart';
+import 'package:covid_fl/features/brand_phones/edit_brand_dialog.dart';
 import 'package:covid_fl/features/models/model_list_widget.dart';
+import 'package:covid_fl/utils/app_colors.dart';
+import 'package:covid_fl/utils/style_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controllers/model_list_controller.dart';
-import '../../utils/app_colors.dart';
 
-class BrandListView extends StatelessWidget {
-  final BrandResponse? data;
-  const BrandListView({
-    Key? key,
-    required this.data,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return data == null
-        ? Center(
-            child: CircularProgressIndicator(),
-          )
-        : Column(
-            children: [
-              Expanded(
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: data!.data.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: BrandListWidget(
-                          brandName: data!.data[index].brandName,
-                          remarks: data!.data[index].brandUrl,
-                          brandId: data!.data[index].id,
-                        ),
-                      );
-                    }),
-              ),
-              ElevatedButton(onPressed: () {}, child: Text("New Brand")),
-            ],
-          );
-  }
-}
-
-class BrandListWidget extends StatelessWidget {
+class BrandTile extends StatelessWidget {
   final ProductListController controller = Get.put(ProductListController());
   final String brandName, remarks, brandId;
-  BrandListWidget({
+  BrandTile({
     Key? key,
     required this.brandName,
     required this.remarks,
@@ -62,9 +26,10 @@ class BrandListWidget extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => ModelList(
-                      data: data,
-                      brandName: brandName,
-                    )));
+                  data: data,
+                  brandName: brandName,
+
+                )));
       },
       child: Container(
         padding: EdgeInsets.all(8),
@@ -103,30 +68,6 @@ class BrandListWidget extends StatelessWidget {
                   ),
                 )
               ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class EditBrandDialog extends StatelessWidget {
-  const EditBrandDialog({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      color: Colors.white,
-      child: Form(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            TextFormField(
-              decoration: InputDecoration(labelText: "Brand Name"),
             ),
           ],
         ),

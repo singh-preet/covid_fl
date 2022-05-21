@@ -1,7 +1,5 @@
 class AppConstant {
 
-
-
   /*.......................Error Messages.....................*/
 
 /*.......................Network Error Messages.....................*/

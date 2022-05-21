@@ -6,5 +6,6 @@ class UrlConstants{
   static const String fetchModels = "fetch-models";
   static const String fetchOrders = "fetch-orders";
   static const String editServices = "edit-service-models";
+  static const String addModel = "add-model";
 
 }

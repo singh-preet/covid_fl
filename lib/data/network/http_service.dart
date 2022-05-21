@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:covid_fl/data/models/response_model/add_model_response.dart';
 import 'package:covid_fl/data/models/response_model/brand_response.dart';
 import 'package:covid_fl/data/models/response_model/category_response.dart';
 import 'package:covid_fl/data/models/response_model/login_response.dart';
@@ -39,7 +40,6 @@ class HttpService {
   }
 
   static Future<ModelsResponse> fetchModels(Map<String, dynamic> body) async {
-    print("Fetch Models called");
     Response _result = await http.post(
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.fetchModels),
         body: body);
@@ -47,8 +47,7 @@ class HttpService {
     return value;
   }
 
-
-  static Future<OrdersResponse> fetchOrders(Map<String, dynamic> body) async{
+  static Future<OrdersResponse> fetchOrders(Map<String, dynamic> body) async {
     Response _result = await http.post(
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.fetchOrders),
         body: body);
@@ -56,14 +55,19 @@ class HttpService {
     return value;
   }
 
-  static Future<UpdateResponse> editServices(Map<String, dynamic> body) async{
-    print(NetworkProperties.baseUrl + UrlConstants.editServices);
-    print(body);
+  static Future<UpdateResponse> editServices(Map<String, dynamic> body) async {
     Response _result = await http.post(
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.editServices),
         body: body);
     final value = UpdateResponse.fromJson(jsonDecode(_result.body));
-    print(jsonDecode(_result.body));
+    return value;
+  }
+
+  static Future<AddModelResponse> addModel(Map<String, dynamic> body) async {
+    Response _result = await http.post(
+        Uri.parse(NetworkProperties.baseUrl + UrlConstants.addModel),
+        body: body);
+    final value = AddModelResponse.fromJson(jsonDecode(_result.body));
     return value;
   }
 }
