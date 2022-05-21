@@ -3,6 +3,7 @@ import 'package:covid_fl/data/models/response_model/brand_response.dart';
 import 'package:covid_fl/data/models/response_model/category_response.dart';
 import 'package:covid_fl/data/models/response_model/login_response.dart';
 import 'package:covid_fl/data/models/response_model/models_response.dart';
+import 'package:covid_fl/data/models/response_model/order_response.dart';
 import 'package:covid_fl/data/network/network_properties.dart';
 import 'package:covid_fl/utils/url_constants.dart';
 import 'package:http/http.dart' as http;
@@ -42,5 +43,17 @@ class HttpService {
         body: body);
     final value = ModelsResponse.fromJson(jsonDecode(_result.body));
     return value;
+  }
+
+
+  //ToDo: make changes to service List in OrdersResponse
+  static Future<OrdersResponse> fetchOrders(Map<String, dynamic> body) async{
+    Response _result = await http.post(
+        Uri.parse(NetworkProperties.baseUrl + UrlConstants.fetchOrders),
+        body: body);
+    final value = OrdersResponse.fromJson(jsonDecode(_result.body));
+    print(jsonDecode(_result.body));
+    return value;
+
   }
 }

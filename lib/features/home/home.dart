@@ -51,7 +51,7 @@ class Home extends StatelessWidget {
             children: [
               BrandListView(data: controller.brands),
               CategoryList(categoryResponse: controller.categories),
-              Orders(data: controller.orderData),
+              Orders(data: controller.orders),
             ],
           ),
         ),
