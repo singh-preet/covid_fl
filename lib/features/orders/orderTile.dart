@@ -1,6 +1,7 @@
 import 'package:phone_tech_london/data/models/response_model/order_response.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 class OrderTile extends StatelessWidget {
@@ -47,15 +48,14 @@ class OrderTile extends StatelessWidget {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(data.services[index].title),
-                                          Text(
-                                              "£${data.services[index].amount}",
-                                              textAlign: TextAlign.right),
+
+                                          Text("${StringConstant.GBP}${data.services[index].amount}", textAlign: TextAlign.right),
                                         ],
                                       ),
                                     )),
                           ),
                           Divider(),
-                          Text("£${data.totalAmount}")
+                          Text("${StringConstant.GBP}${data.totalAmount}")
                         ],
                       ),
                     ));

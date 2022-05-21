@@ -1,5 +1,6 @@
 import 'package:phone_tech_london/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
 
 class ServiceTile extends StatelessWidget {
   final String service, price;
@@ -21,7 +22,7 @@ class ServiceTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(service),
-          Text("£$price"),
+          Text("${StringConstant.GBP}$price"),
         ],
       ),
     );

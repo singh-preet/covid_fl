@@ -3,13 +3,10 @@ import 'package:phone_tech_london/data/models/response_model/update_response.dar
 import 'package:phone_tech_london/features/service/service_tile.dart';
 import 'package:phone_tech_london/routes/app_routes.dart';
 import 'package:phone_tech_london/utils/app_colors.dart';
-import 'package:phone_tech_london/controllers/service_detail_controller.dart';
-import 'package:phone_tech_london/data/models/response_model/update_response.dart';
-import 'package:phone_tech_london/routes/app_routes.dart';
-import 'package:phone_tech_london/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:phone_tech_london/data/models/response_model/models_response.dart';
 import 'package:get/get.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
 
 class ServiceDetailScreen extends StatelessWidget {
   final String prodName;
@@ -89,7 +86,7 @@ class ServiceDetailScreen extends StatelessWidget {
                                           controller:
                                               serviceDetailController.charges,
                                           decoration: InputDecoration(
-                                              prefix: Text("£"))),
+                                              prefix: Text("${StringConstant.GBP}"))),
                                     ],
                                   ),
                                 ));
