@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:phone_tech_london/controllers/model_list_controller.dart';
+
+class CommonDialog {
+  static dialog(
+      {required BuildContext context,
+      required String title,
+      required String actionText,
+      required TextEditingController textController,
+      required Function onTap,required dynamic controller}) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(title),
+                  IconButton(
+                      icon: Icon(Icons.clear), onPressed: () => Get.back())
+                ],
+              ),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  TextFormField(
+                    controller: textController,
+                    decoration: InputDecoration(labelText: "Model Name"),
+                  )
+                ],
+              ),
+              actions: [
+                OutlinedButton(
+                    onPressed: () async {
+                      onTap();
+                      controller.clear();
+                      Get.back();
+                    },
+                    child: Text(actionText))
+              ],
+            ));
+  }
+}

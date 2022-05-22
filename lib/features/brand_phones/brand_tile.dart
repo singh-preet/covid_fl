@@ -34,6 +34,7 @@ class BrandTile extends StatelessWidget {
                 builder: (context) => ModelList(
                       data: data,
                       brandName: brandName,
+                  brandId:brandId
                     )));
       },
       child: Container(
