@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:phone_tech_london/data/models/response_model/add_model_response.dart';
 import 'package:phone_tech_london/data/models/response_model/brand_response.dart';
 import 'package:phone_tech_london/data/models/response_model/category_response.dart';
+import 'package:phone_tech_london/data/models/response_model/edit_brand_response.dart';
 import 'package:phone_tech_london/data/models/response_model/login_response.dart';
 import 'package:phone_tech_london/data/models/response_model/models_response.dart';
 import 'package:phone_tech_london/data/models/response_model/order_response.dart';
@@ -78,6 +79,14 @@ class HttpService {
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.addModel),
         body: body);
     final value = AddModelResponse.fromJson(jsonDecode(_result.body));
+    return value;
+  }
+
+  static Future<EditBrandResponse> editBrand(Map<String, dynamic> body) async {
+    Response _result = await http.post(
+        Uri.parse(NetworkProperties.baseUrl + UrlConstants.editBrand),
+        body: body);
+    final value = EditBrandResponse.fromJson(jsonDecode(_result.body));
     return value;
   }
 }

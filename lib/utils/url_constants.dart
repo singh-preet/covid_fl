@@ -1,5 +1,6 @@
-class UrlConstants{
+class UrlConstants {
   UrlConstants._();
+
   static const String login = "login";
   static const String fetchCategory = "fetch-laptop";
   static const String fetchBrands = "fetch-brands";
@@ -7,5 +8,5 @@ class UrlConstants{
   static const String fetchOrders = "fetch-orders";
   static const String editServices = "edit-service-models";
   static const String addModel = "add-model";
-
+  static const String editBrand = "edit-brand";
 }

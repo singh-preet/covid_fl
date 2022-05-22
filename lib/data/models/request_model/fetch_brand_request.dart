@@ -3,7 +3,8 @@ class FetchCategoryRequest {
   late String appId;
   late String categoryId;
 
-  FetchCategoryRequest({required this.userId,required this.appId, required this.categoryId});
+  FetchCategoryRequest(
+      {required this.userId, required this.appId, required this.categoryId});
 
   FetchCategoryRequest.fromJson(Map<String, String> json) {
     userId = json['userId']!;
