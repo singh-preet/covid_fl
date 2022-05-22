@@ -9,10 +9,8 @@ import 'package:phone_tech_london/data/models/response_model/order_response.dart
 import 'package:phone_tech_london/data/models/response_model/update_response.dart';
 import 'package:phone_tech_london/data/network/network_properties.dart';
 import 'package:phone_tech_london/utils/url_constants.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-
 import '../../utils/url_constants.dart';
 import '../models/response_model/brand_response.dart';
 import '../models/response_model/category_response.dart';

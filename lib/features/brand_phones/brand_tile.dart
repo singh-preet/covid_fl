@@ -20,7 +20,8 @@ class BrandTile extends StatelessWidget {
       {Key? key,
       required this.brandName,
       required this.remarks,
-      required this.brandId})
+      required this.brandId}
+      )
       : super(key: key);
 
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:phone_tech_london/controllers/model_list_controller.dart';
+import 'package:phone_tech_london/routes/app_routes.dart';
 
 class CommonDialog {
   static dialog(
@@ -35,7 +35,7 @@ class CommonDialog {
                     onPressed: () async {
                       onTap();
                       controller.clear();
-                      Get.back();
+                      Get.offAllNamed(Routes.HOME);
                     },
                     child: Text(actionText))
               ],
