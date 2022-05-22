@@ -34,10 +34,10 @@ class Home extends StatelessWidget {
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(StringConstant.USERNAME,
+                Text(StringConstant.APP_NAME,
                     style: TextStyle(
                         color: AppColors.lightOrange, letterSpacing: 2)),
-                Text(StringConstant.APP_NAME,
+                Text(StringConstant.USERNAME,
                     style: TextStyle(
                         color: AppColors.unselectedTab, fontSize: 12)),
               ],

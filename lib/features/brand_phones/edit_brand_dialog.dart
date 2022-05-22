@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:phone_tech_london/controllers/brand_list_controller.dart';
 
 class EditBrandDialog extends StatelessWidget {
-  const EditBrandDialog({
-    Key? key,
-  }) : super(key: key);
+  final BrandListController brandListController;
+  EditBrandDialog({
+    Key? key, required this.brandListController,
+  }) : super(key: key){
+    brandListController.initialize(brandListController.brandName.text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +20,7 @@ class EditBrandDialog extends StatelessWidget {
           children: [
             TextFormField(
               decoration: InputDecoration(labelText: "Brand Name"),
+              controller: brandListController.brandName,
             ),
           ],
         ),

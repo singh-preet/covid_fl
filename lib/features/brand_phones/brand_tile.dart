@@ -1,7 +1,7 @@
 import 'package:phone_tech_london/controllers/brand_list_controller.dart';
 import 'package:phone_tech_london/controllers/model_list_controller.dart';
-import 'package:phone_tech_london/data/models/response_model/edit_brand_response.dart';
 import 'package:phone_tech_london/data/models/response_model/models_response.dart';
+import 'package:phone_tech_london/data/models/response_model/update_response.dart';
 import 'package:phone_tech_london/features/models/model_list_widget.dart';
 import 'package:phone_tech_london/utils/app_colors.dart';
 import 'package:phone_tech_london/utils/style_manager.dart';
@@ -32,9 +32,7 @@ class BrandTile extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => ModelList(
-                      data: data,
-                      brandName: brandName,
-                    )));
+                    data: data, brandName: brandName, brandId: brandId)));
       },
       child: Container(
         padding: EdgeInsets.all(8),
@@ -63,10 +61,9 @@ class BrandTile extends StatelessWidget {
                               brandListController
                                   .editBrand(brandListController.brandName.text,
                                       brandId)
-                                  .then((EditBrandResponse value) {
+                                  .then((UpdateResponse value) {
                                 if (value.status == 200 &&
                                     value.message == "Success") {
-                                  print("successful");
                                   Get.rawSnackbar(message: value.message);
                                 } else {
                                   Get.rawSnackbar(
@@ -78,7 +75,8 @@ class BrandTile extends StatelessWidget {
                             },
                             child: Text("Update")),
                       ],
-                      content: EditBrandDialog(),
+                      content: EditBrandDialog(
+                          brandListController: brandListController),
                       barrierDismissible: false),
                   icon: Icon(
                     Icons.edit,

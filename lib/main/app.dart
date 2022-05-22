@@ -1,5 +1,4 @@
 import 'package:phone_tech_london/bindings/splash_binding.dart';
-import 'package:phone_tech_london/features/login_screen/login_screen.dart';
 import 'package:phone_tech_london/features/splash_screen/splash_screen.dart';
 import 'package:phone_tech_london/routes/app_pages.dart';
 import 'package:phone_tech_london/routes/app_routes.dart';

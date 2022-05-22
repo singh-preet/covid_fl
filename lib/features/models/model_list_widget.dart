@@ -1,14 +1,20 @@
 import 'package:phone_tech_london/controllers/model_list_controller.dart';
 import 'package:phone_tech_london/data/models/response_model/models_response.dart';
+import 'package:phone_tech_london/features/_widgets/common_dialog.dart';
 import 'package:phone_tech_london/features/models/model_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:phone_tech_london/utils/app_colors.dart';
 
 class ModelList extends StatelessWidget {
   final ProductListController productListController = Get.find();
   final ModelsResponse data;
-  final String brandName;
-  ModelList({Key? key, required this.data, required this.brandName})
+  final String brandName, brandId;
+  ModelList(
+      {Key? key,
+      required this.data,
+      required this.brandName,
+      required this.brandId})
       : super(key: key);
 
   @override
@@ -32,9 +38,30 @@ class ModelList extends StatelessWidget {
                     );
                   }),
             ),
-            TextButton(
+            MaterialButton(
+              color: AppColors.lightOrange,
               onPressed: () {
-                productListController.addModel(brandId: "", modelName: "");
+                productListController.initialize();
+                CommonDialog.dialog(
+                    controller: productListController,
+                    context: context,
+                    textController: productListController.newModelName,
+                    title: "Add Model",
+                    actionText: "Add",
+                    onTap: () {
+                      productListController
+                          .addModel(
+                              brandId: brandId,
+                              modelName:
+                                  productListController.newModelName.text)
+                          .then((value) {
+                        Get.rawSnackbar(
+                            message: value.message,
+                            backgroundColor: value.status == 200
+                                ? Colors.green
+                                : Colors.red);
+                      });
+                    });
               },
               child: Text("Add new Product"),
             ),

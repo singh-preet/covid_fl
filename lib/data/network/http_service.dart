@@ -2,17 +2,14 @@ import 'dart:convert';
 import 'package:phone_tech_london/data/models/response_model/add_model_response.dart';
 import 'package:phone_tech_london/data/models/response_model/brand_response.dart';
 import 'package:phone_tech_london/data/models/response_model/category_response.dart';
-import 'package:phone_tech_london/data/models/response_model/edit_brand_response.dart';
 import 'package:phone_tech_london/data/models/response_model/login_response.dart';
 import 'package:phone_tech_london/data/models/response_model/models_response.dart';
 import 'package:phone_tech_london/data/models/response_model/order_response.dart';
 import 'package:phone_tech_london/data/models/response_model/update_response.dart';
 import 'package:phone_tech_london/data/network/network_properties.dart';
 import 'package:phone_tech_london/utils/url_constants.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-
 import '../../utils/url_constants.dart';
 import '../models/response_model/brand_response.dart';
 import '../models/response_model/category_response.dart';
@@ -47,6 +44,7 @@ class HttpService {
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.fetchBrands),
         body: body);
     final value = BrandResponse.fromJson(jsonDecode(_result.body));
+
     return value;
   }
 
@@ -66,6 +64,14 @@ class HttpService {
     return value;
   }
 
+  static Future<UpdateResponse> addService(Map<String, dynamic> body) async {
+    Response _result = await http.post(
+        Uri.parse(NetworkProperties.baseUrl + UrlConstants.addService),
+        body: body);
+    final value = UpdateResponse.fromJson(jsonDecode(_result.body));
+    return value;
+  }
+
   static Future<UpdateResponse> editServices(Map<String, dynamic> body) async {
     Response _result = await http.post(
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.editServices),
@@ -82,11 +88,15 @@ class HttpService {
     return value;
   }
 
-  static Future<EditBrandResponse> editBrand(Map<String, dynamic> body) async {
-    Response _result = await http.post(
-        Uri.parse(NetworkProperties.baseUrl + UrlConstants.editBrand),
-        body: body);
-    final value = EditBrandResponse.fromJson(jsonDecode(_result.body));
-    return value;
+  static
+      // Future<EditBrandResponse>
+      editBrand(Map<String, dynamic> body) async {
+    print(NetworkProperties.baseUrl + UrlConstants.editBrand);
+    print(body);
+    // Response _result = await http.post(
+    //     Uri.parse(NetworkProperties.baseUrl + UrlConstants.editBrand),
+    //     body: body);
+    // final value = EditBrandResponse.fromJson(jsonDecode(_result.body));
+    // return value;
   }
 }
