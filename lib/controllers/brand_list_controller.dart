@@ -6,18 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BrandListController extends GetxController {
-  late TextEditingController brandName;
+  late TextEditingController brandName=TextEditingController();
 
-  initialize(String charge) {
-    brandName = TextEditingController(text: charge);
+  initialize(String name) {
+    print("::::::initialize called $name");
+    brandName = TextEditingController(text: name);
   }
 
   clear() {
     brandName.clear();
   }
 
-  Future<EditBrandResponse> editBrand(String brandId, String brandName) async {
-    EditBrandResponse res = await HttpService.editBrand({
+  Future<UpdateResponse> editBrand(String brandId, String brandName) async {
+    UpdateResponse res = await HttpService.editBrand({
       "userId": AppPreferences.getString(AppPreferences.userId),
       "appId": AppPreferences.getString(AppPreferences.appId),
       "brandId": brandId,
