@@ -32,7 +32,7 @@ class _AppState extends State<App> {
           primarySwatch: Colors.blue,
           accentColor: AppColors.backgroundColor,
           backgroundColor: AppColors.backgroundColor),
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }

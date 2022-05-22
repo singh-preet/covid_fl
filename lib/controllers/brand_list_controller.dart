@@ -8,8 +8,8 @@ import 'package:get/get.dart';
 class BrandListController extends GetxController {
   late TextEditingController brandName;
 
-  initialize(String charge) {
-    brandName = TextEditingController(text: charge);
+  initialize(String brandNames) {
+    brandName = TextEditingController(text: brandNames);
   }
 
   clear() {
