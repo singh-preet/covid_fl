@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:phone_tech_london/data/models/response_model/add_model_response.dart';
 import 'package:phone_tech_london/data/models/response_model/brand_response.dart';
 import 'package:phone_tech_london/data/models/response_model/category_response.dart';
-import 'package:phone_tech_london/data/models/response_model/edit_brand_response.dart';
 import 'package:phone_tech_london/data/models/response_model/login_response.dart';
 import 'package:phone_tech_london/data/models/response_model/models_response.dart';
 import 'package:phone_tech_london/data/models/response_model/order_response.dart';

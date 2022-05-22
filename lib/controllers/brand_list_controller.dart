@@ -1,4 +1,3 @@
-import 'package:phone_tech_london/data/models/response_model/edit_brand_response.dart';
 import 'package:phone_tech_london/data/models/response_model/update_response.dart';
 import 'package:phone_tech_london/data/network/http_service.dart';
 import 'package:phone_tech_london/utils/app_preferences.dart';
