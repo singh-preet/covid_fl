@@ -29,12 +29,9 @@ class ModelList extends StatelessWidget {
               child: ListView.builder(
                   itemCount: data.data.length,
                   itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ModelTile(id: data.data[index].id,
-                        name: data.data[index].modelName,
-                        serviceData: data.data[index].serviceList,
-                      ),
+                    return ModelTile(id: data.data[index].id,
+                      name: data.data[index].modelName,
+                      serviceData: data.data[index].serviceList,
                     );
                   }),
             ),

@@ -2,6 +2,7 @@ import 'package:phone_tech_london/controllers/brand_list_controller.dart';
 import 'package:phone_tech_london/controllers/model_list_controller.dart';
 import 'package:phone_tech_london/data/models/response_model/models_response.dart';
 import 'package:phone_tech_london/data/models/response_model/update_response.dart';
+import 'package:phone_tech_london/features/_widgets/border_container.dart';
 import 'package:phone_tech_london/features/models/model_list_widget.dart';
 import 'package:phone_tech_london/utils/app_colors.dart';
 import 'package:phone_tech_london/utils/style_manager.dart';
@@ -34,58 +35,46 @@ class BrandTile extends StatelessWidget {
                 builder: (context) => ModelList(
                     data: data, brandName: brandName, brandId: brandId)));
       },
-      child: Container(
-        padding: EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: AppColors.lightOrange,
-          ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      child: BorderContainer(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  brandName,
-                  style: StyleManager.bold(color: AppColors.unselectedTab),
-                ),
-                IconButton(
-                  onPressed: () => Get.defaultDialog(
-                      title: brandName,
-                      actions: [
-                        OutlinedButton(
-                            onPressed: () async {
-                              brandListController
-                                  .editBrand(brandName: brandListController.brandName.text,
-                                      brandId: brandId)
-                                  .then((UpdateResponse value) {
-                                if (value.status == 200 &&
-                                    value.message == "Success") {
-                                  Get.rawSnackbar(message: value.message);
-                                } else {
-                                  Get.rawSnackbar(
-                                      message: "Please try again",
-                                      backgroundColor: Colors.red);
-                                }
-                              });
-                              Get.offAllNamed(Routes.HOME);
-                            },
-                            child: Text("Update")),
-                      ],
-                      content: EditBrandDialog(
-                          brandListController: brandListController),
-                      barrierDismissible: false),
-                  icon: Icon(
-                    Icons.edit,
-                    color: AppColors.lightOrange,
-                    size: 20,
-                  ),
-                )
-              ],
+            Text(
+              brandName,
+              style: StyleManager.bold(color: AppColors.unselectedTab),
             ),
+            IconButton(
+              onPressed: () => Get.defaultDialog(
+                  title: brandName,
+                  actions: [
+                    OutlinedButton(
+                        onPressed: () async {
+                          brandListController
+                              .editBrand(brandName: brandListController.brandName.text,
+                                  brandId: brandId)
+                              .then((UpdateResponse value) {
+                            if (value.status == 200 &&
+                                value.message == "Success") {
+                              Get.rawSnackbar(message: value.message);
+                            } else {
+                              Get.rawSnackbar(
+                                  message: "Please try again",
+                                  backgroundColor: Colors.red);
+                            }
+                          });
+                          Get.offAllNamed(Routes.HOME);
+                        },
+                        child: Text("Update")),
+                  ],
+                  content: EditBrandDialog(
+                      brandListController: brandListController),
+                  barrierDismissible: false),
+              icon: Icon(
+                Icons.edit,
+                color: AppColors.lightOrange,
+                size: 18,
+              ),
+            )
           ],
         ),
       ),

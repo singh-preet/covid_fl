@@ -23,13 +23,10 @@ class BrandListView extends StatelessWidget {
                     shrinkWrap: true,
                     itemCount: data!.data.length,
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: BrandTile(
-                          brandName: data!.data[index].brandName,
-                          remarks: data!.data[index].brandUrl,
-                          brandId: data!.data[index].id,
-                        ),
+                      return BrandTile(
+                        brandName: data!.data[index].brandName,
+                        remarks: data!.data[index].brandUrl,
+                        brandId: data!.data[index].id,
                       );
                     }),
               ),

@@ -1,4 +1,4 @@
-import 'package:phone_tech_london/utils/app_colors.dart';
+import 'package:phone_tech_london/features/_widgets/border_container.dart';
 import 'package:flutter/material.dart';
 import 'package:phone_tech_london/utils/string_constant.dart';
 
@@ -10,15 +10,8 @@ class ServiceTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-            color: AppColors.lightOrange,
-          )),
-      child: Row(
+    return BorderContainer(
+          child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(service),

@@ -1,5 +1,6 @@
 import 'package:phone_tech_london/controllers/service_detail_controller.dart';
 import 'package:phone_tech_london/data/models/response_model/models_response.dart';
+import 'package:phone_tech_london/features/_widgets/border_container.dart';
 import 'package:phone_tech_london/features/models/edit_model_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:phone_tech_london/features/service/service_detail_screen.dart';
@@ -33,37 +34,26 @@ class ModelTile extends StatelessWidget {
                       serviceData: serviceData,
                     )));
       },
-      child: Container(
-        padding: EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: AppColors.lightOrange,
-          ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      child: BorderContainer(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  name,
-                  style: StyleManager.bold(color: AppColors.unselectedTab),
-                ),
-                IconButton(
-                  onPressed: () => Get.defaultDialog(
-                      title: name,
-                      content: EditModelDialog(),
-                      barrierDismissible: false),
-                  icon: Icon(
-                    Icons.edit,
-                    color: AppColors.lightOrange,
-                    size: 20,
-                  ),
-                )
-              ],
+            Text(
+              name,
+              style: StyleManager.bold(color: AppColors.unselectedTab),
             ),
+            IconButton(
+              padding: EdgeInsets.zero,
+              onPressed: () => Get.defaultDialog(
+                  title: name,
+                  content: EditModelDialog(),
+                  barrierDismissible: false),
+              icon: Icon(
+                Icons.edit,
+                color: AppColors.lightOrange,
+                size: 20,
+              ),
+            )
           ],
         ),
       ),

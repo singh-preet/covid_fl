@@ -1,5 +1,6 @@
 import 'package:phone_tech_london/controllers/service_detail_controller.dart';
 import 'package:phone_tech_london/data/models/response_model/update_response.dart';
+import 'package:phone_tech_london/features/_widgets/border_container.dart';
 import 'package:phone_tech_london/features/service/service_tile.dart';
 import 'package:phone_tech_london/routes/app_routes.dart';
 import 'package:phone_tech_london/utils/app_colors.dart';
@@ -14,7 +15,10 @@ class ServiceDetailScreen extends StatelessWidget {
   final ServiceDetailController serviceDetailController = Get.find();
 
   ServiceDetailScreen(
-      {Key? key, required this.prodName, required this.serviceData, required this.modelId})
+      {Key? key,
+      required this.prodName,
+      required this.serviceData,
+      required this.modelId})
       : super(key: key);
 
   @override
@@ -25,21 +29,30 @@ class ServiceDetailScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Card(
-            child: DropdownButtonHideUnderline(
-              child: DropdownButtonFormField<dynamic>(
-                  items: serviceDetailController.items,decoration: InputDecoration(labelText: "Select a service to add"),
-                  onChanged: (_) {
-                    serviceDetailController.addService(id: _, amount: "1", modelId: modelId).then((UpdateResponse _){
-                      if(_.status==200){
-                        Get.offAllNamed(Routes.HOME);
-                        Get.rawSnackbar(message: _.message, backgroundColor: Colors.green);
-                      }else{
-                        Get.rawSnackbar(message: _.message, backgroundColor: Colors.red);
-                      }
-                    });
-                  },
-              ),
+          BorderContainer(
+            child: DropdownButtonFormField<dynamic>(
+              elevation: 5,
+              isDense: true,
+              items: serviceDetailController.items,
+              decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.all(0),
+                  labelText: "Select a service to add",
+                  isDense: true,
+                  border: InputBorder.none),
+              onChanged: (_) {
+                serviceDetailController
+                    .addService(id: _, amount: "1", modelId: modelId)
+                    .then((UpdateResponse _) {
+                  if (_.status == 200) {
+                    Get.offAllNamed(Routes.HOME);
+                    Get.rawSnackbar(
+                        message: _.message, backgroundColor: Colors.green);
+                  } else {
+                    Get.rawSnackbar(
+                        message: _.message, backgroundColor: Colors.red);
+                  }
+                });
+              },
             ),
           ),
           Expanded(
