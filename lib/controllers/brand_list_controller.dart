@@ -15,7 +15,7 @@ class BrandListController extends GetxController {
     brandName.clear();
   }
 
-  Future<UpdateResponse> editBrand(String brandId, String brandName) async {
+  Future<UpdateResponse> editBrand({required String brandId, required String brandName}) async {
     UpdateResponse res = await HttpService.editBrand({
       "userId": AppPreferences.getString(AppPreferences.userId),
       "appId": AppPreferences.getString(AppPreferences.appId),

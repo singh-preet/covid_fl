@@ -9,7 +9,7 @@ import '../../utils/app_colors.dart';
 import '../../utils/style_manager.dart';
 
 class ModelTile extends StatelessWidget {
-  final String name;
+  final String name, id;
   final List<ServiceList> serviceData;
   final ServiceDetailController controller = Get.put(ServiceDetailController());
 
@@ -17,6 +17,7 @@ class ModelTile extends StatelessWidget {
     Key? key,
     required this.name,
     required this.serviceData,
+    required this.id,
   }) : super(key: key);
 
   @override
@@ -27,6 +28,7 @@ class ModelTile extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => ServiceDetailScreen(
+                      modelId: id,
                       prodName: name,
                       serviceData: serviceData,
                     )));

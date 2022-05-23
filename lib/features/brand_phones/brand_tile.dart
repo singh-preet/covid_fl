@@ -59,8 +59,8 @@ class BrandTile extends StatelessWidget {
                         OutlinedButton(
                             onPressed: () async {
                               brandListController
-                                  .editBrand(brandListController.brandName.text,
-                                      brandId)
+                                  .editBrand(brandName: brandListController.brandName.text,
+                                      brandId: brandId)
                                   .then((UpdateResponse value) {
                                 if (value.status == 200 &&
                                     value.message == "Success") {

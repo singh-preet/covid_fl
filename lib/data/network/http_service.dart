@@ -88,15 +88,11 @@ class HttpService {
     return value;
   }
 
-  static
-      // Future<EditBrandResponse>
-      editBrand(Map<String, dynamic> body) async {
-    print(NetworkProperties.baseUrl + UrlConstants.editBrand);
-    print(body);
-    // Response _result = await http.post(
-    //     Uri.parse(NetworkProperties.baseUrl + UrlConstants.editBrand),
-    //     body: body);
-    // final value = EditBrandResponse.fromJson(jsonDecode(_result.body));
-    // return value;
+  static Future<UpdateResponse> editBrand(Map<String, dynamic> body) async {
+    Response _result = await http.post(
+        Uri.parse(NetworkProperties.baseUrl + UrlConstants.editBrand),
+        body: body);
+    final value = UpdateResponse.fromJson(jsonDecode(_result.body));
+    return value;
   }
 }

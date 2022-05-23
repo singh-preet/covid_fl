@@ -31,7 +31,7 @@ class ModelList extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: ModelTile(
+                      child: ModelTile(id: data.data[index].id,
                         name: data.data[index].modelName,
                         serviceData: data.data[index].serviceList,
                       ),
