@@ -5,6 +5,7 @@ import 'package:phone_tech_london/features/models/model_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:phone_tech_london/utils/app_colors.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
 
 class ModelList extends StatelessWidget {
   final ProductListController productListController = Get.find();
@@ -29,7 +30,8 @@ class ModelList extends StatelessWidget {
               child: ListView.builder(
                   itemCount: data.data.length,
                   itemBuilder: (context, index) {
-                    return ModelTile(id: data.data[index].id,
+                    return ModelTile(
+                      id: data.data[index].id,
                       name: data.data[index].modelName,
                       serviceData: data.data[index].serviceList,
                     );
@@ -43,8 +45,8 @@ class ModelList extends StatelessWidget {
                     controller: productListController,
                     context: context,
                     textController: productListController.newModelName,
-                    title: "Add Model",
-                    actionText: "Add",
+                    title: StringConstant.add_model,
+                    actionText: StringConstant.add,
                     onTap: () {
                       productListController
                           .addModel(
@@ -60,7 +62,7 @@ class ModelList extends StatelessWidget {
                       });
                     });
               },
-              child: Text("Add new Product"),
+              child: Text(StringConstant.add_new_product),
             ),
           ],
         ));

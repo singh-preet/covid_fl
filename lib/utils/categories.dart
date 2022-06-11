@@ -1,0 +1,1 @@
+enum Categories{PHONE, LAPTOP, CATEGORY}

@@ -5,6 +5,7 @@ import 'package:phone_tech_london/data/models/response_model/category_response.d
 import 'package:phone_tech_london/data/models/response_model/login_response.dart';
 import 'package:phone_tech_london/data/models/response_model/models_response.dart';
 import 'package:phone_tech_london/data/models/response_model/order_response.dart';
+import 'package:phone_tech_london/data/models/response_model/service_list_response.dart';
 import 'package:phone_tech_london/data/models/response_model/update_response.dart';
 import 'package:phone_tech_london/data/network/network_properties.dart';
 import 'package:phone_tech_london/utils/url_constants.dart';
@@ -93,6 +94,14 @@ class HttpService {
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.editBrand),
         body: body);
     final value = UpdateResponse.fromJson(jsonDecode(_result.body));
+    return value;
+  }
+
+  static Future<ServiceListModel> fetchServiceList(Map<String, dynamic> body) async {
+    Response _result = await http.post(
+        Uri.parse(NetworkProperties.baseUrl + UrlConstants.fetchServiceList),
+        body: body);
+    final value = ServiceListModel.fromJson(jsonDecode(_result.body));
     return value;
   }
 }

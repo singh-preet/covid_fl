@@ -1,6 +1,6 @@
 import 'package:phone_tech_london/controllers/service_detail_controller.dart';
 import 'package:phone_tech_london/data/models/response_model/update_response.dart';
-import 'package:phone_tech_london/features/_widgets/border_container.dart';
+import 'package:phone_tech_london/features/_widgets/service_dropdown.dart';
 import 'package:phone_tech_london/features/service/service_tile.dart';
 import 'package:phone_tech_london/routes/app_routes.dart';
 import 'package:phone_tech_london/utils/app_colors.dart';
@@ -29,32 +29,11 @@ class ServiceDetailScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          BorderContainer(
-            child: DropdownButtonFormField<dynamic>(
-              elevation: 5,
-              isDense: true,
-              items: serviceDetailController.items,
-              decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.all(0),
-                  labelText: "Select a service to add",
-                  isDense: true,
-                  border: InputBorder.none),
-              onChanged: (_) {
-                serviceDetailController
-                    .addService(id: _, amount: "1", modelId: modelId)
-                    .then((UpdateResponse _) {
-                  if (_.status == 200) {
-                    Get.offAllNamed(Routes.HOME);
-                    Get.rawSnackbar(
-                        message: _.message, backgroundColor: Colors.green);
-                  } else {
-                    Get.rawSnackbar(
-                        message: _.message, backgroundColor: Colors.red);
-                  }
-                });
-              },
-            ),
-          ),
+          ServiceDropDown(
+              serviceDetailController: serviceDetailController,
+              modelId: modelId,
+              isAddService: true,
+              categoryId: 1),
           Expanded(
             child: ListView.builder(
                 physics: ScrollPhysics(),
@@ -98,13 +77,14 @@ class ServiceDetailScreen extends StatelessWidget {
                                                   message: value.message);
                                             } else {
                                               Get.rawSnackbar(
-                                                  message: "Please try again",
+                                                  message:
+                                                      StringConstant.try_again,
                                                   backgroundColor: Colors.red);
                                             }
                                           });
                                           Get.offAllNamed(Routes.HOME);
                                         },
-                                        child: Text("Update"),
+                                        child: Text(StringConstant.update),
                                         color: AppColors.lightOrange,
                                       )
                                     ],

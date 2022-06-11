@@ -5,10 +5,10 @@ import 'package:phone_tech_london/data/models/response_model/update_response.dar
 import 'package:phone_tech_london/features/_widgets/border_container.dart';
 import 'package:phone_tech_london/features/models/model_list_widget.dart';
 import 'package:phone_tech_london/utils/app_colors.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
 import 'package:phone_tech_london/utils/style_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../routes/app_routes.dart';
 import 'edit_brand_dialog.dart';
 
@@ -35,6 +35,7 @@ class BrandTile extends StatelessWidget {
                 builder: (context) => ModelList(
                     data: data, brandName: brandName, brandId: brandId)));
       },
+
       child: BorderContainer(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,13 +59,13 @@ class BrandTile extends StatelessWidget {
                               Get.rawSnackbar(message: value.message);
                             } else {
                               Get.rawSnackbar(
-                                  message: "Please try again",
+                                  message: StringConstant.try_again,
                                   backgroundColor: Colors.red);
                             }
                           });
                           Get.offAllNamed(Routes.HOME);
                         },
-                        child: Text("Update")),
+                        child: Text(StringConstant.update)),
                   ],
                   content: EditBrandDialog(
                       brandListController: brandListController),

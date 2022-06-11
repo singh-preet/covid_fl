@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
 
 class EditModelDialog extends StatelessWidget {
   const EditModelDialog({
@@ -16,13 +17,13 @@ class EditModelDialog extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             TextFormField(
-              decoration: InputDecoration(labelText: "Product Name"),
+              decoration: InputDecoration(labelText: StringConstant.product_name),
             ),
             OutlinedButton(
                 onPressed: () {
                   Get.back();
                 },
-                child: Text("Update"))
+                child: Text(StringConstant.update))
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phone_tech_london/controllers/brand_list_controller.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
 
 class EditBrandDialog extends StatelessWidget {
   final BrandListController brandListController;
@@ -19,7 +20,7 @@ class EditBrandDialog extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             TextFormField(
-              decoration: InputDecoration(labelText: "Brand Name"),
+              decoration: InputDecoration(labelText: StringConstant.brand_name),
               controller: brandListController.brandName,
             ),
           ],

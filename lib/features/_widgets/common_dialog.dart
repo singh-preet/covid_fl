@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:phone_tech_london/routes/app_routes.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
 
 class CommonDialog {
   static dialog(
@@ -26,7 +27,7 @@ class CommonDialog {
                 children: [
                   TextFormField(
                     controller: textController,
-                    decoration: InputDecoration(labelText: "Model Name"),
+                    decoration: InputDecoration(labelText: StringConstant.model_name),
                   )
                 ],
               ),

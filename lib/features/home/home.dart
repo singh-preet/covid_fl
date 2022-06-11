@@ -1,11 +1,12 @@
 import 'package:phone_tech_london/controllers/home_controller.dart';
 import 'package:phone_tech_london/features/brand_phones/brand_list_widget.dart';
+import 'package:phone_tech_london/features/invoice/generate_invoice.dart';
 import 'package:phone_tech_london/features/laptop/laptop_grid.dart';
 import 'package:phone_tech_london/features/orders/orders.dart';
+import 'package:phone_tech_london/features/tablet/tablet_grid.dart';
 import 'package:phone_tech_london/utils/app_colors.dart';
 import 'package:phone_tech_london/utils/app_images.dart';
 import 'package:phone_tech_london/utils/string_constant.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +20,7 @@ class Home extends StatelessWidget {
       controller.getHomePageData();
     }, builder: (controller) {
       return DefaultTabController(
-        length: 3,
+        length: 5,
         initialIndex: 0,
         child: Scaffold(
           backgroundColor: AppColors.backgroundColor,
@@ -51,7 +52,9 @@ class Home extends StatelessWidget {
           body: TabBarView(
             children: [
               BrandListView(data: controller.brands),
-              CategoryList(categoryResponse: controller.categories),
+              TabList(tabResponse: controller.tablets),
+              LaptopList(categoryResponse: controller.laptop),
+              GenerateInvoice(),
               Orders(data: controller.orders),
             ],
           ),

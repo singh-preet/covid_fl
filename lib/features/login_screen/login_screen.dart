@@ -1,4 +1,5 @@
 import 'package:phone_tech_london/controllers/login_controller.dart';
+import 'package:phone_tech_london/features/_widgets/text_field.dart';
 import 'package:phone_tech_london/utils/app_colors.dart';
 import 'package:phone_tech_london/utils/app_images.dart';
 import 'package:phone_tech_london/utils/string_constant.dart';
@@ -22,50 +23,31 @@ class LoginScreen extends StatelessWidget {
                 child: Container(),
               ),
               Transform.scale(scale: 1.5, child: Image.asset(AppImages.logo)),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: TextFormField(
-                  controller: controller.email,
-                  keyboardType: TextInputType.emailAddress,
-                  cursorColor: AppColors.black,
-                  style: StyleManager.regularBlack(),
-                  decoration: InputDecoration(
-                    suffix: Icon(Icons.email_outlined, color: Colors.black),
-                    labelText: "Email",
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.orange),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.orange),
-                    ),
-                    border: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black26)),
-                    labelStyle: StyleManager.regularBlack(fontSize: 16),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: TextFormField(
-                  controller: controller.password,
-                  keyboardType: TextInputType.visiblePassword,
-                  cursorColor: AppColors.black,
-                  style: StyleManager.regularBlack(),
-                  decoration: InputDecoration(
-                    suffix: Icon(Icons.remove_red_eye, color: Colors.black),
-                    labelText: "Password",
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.orange),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.orange),
-                    ),
-                    border: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black26)),
-                    labelStyle: StyleManager.regularBlack(fontSize: 16),
-                  ),
-                ),
-              ),
+              CustomTextField(controller: controller.email,labelText: StringConstant.email, suffixIcon: Icons.email_outlined, keyboardType: TextInputType.emailAddress),
+              CustomTextField(controller: controller.password,labelText: StringConstant.password, suffixIcon: Icons.remove_red_eye, keyboardType:TextInputType.visiblePassword),
+
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 16),
+              //   child: TextFormField(
+              //     controller: controller.password,
+              //     keyboardType: TextInputType.visiblePassword,
+              //     cursorColor: AppColors.black,
+              //     style: StyleManager.regularBlack(),
+              //     decoration: InputDecoration(
+              //       suffix: Icon(Icons.remove_red_eye, color: Colors.black),
+              //       labelText: "Password",
+              //       enabledBorder: UnderlineInputBorder(
+              //         borderSide: BorderSide(color: Colors.orange),
+              //       ),
+              //       focusedBorder: UnderlineInputBorder(
+              //         borderSide: BorderSide(color: Colors.orange),
+              //       ),
+              //       border: UnderlineInputBorder(
+              //           borderSide: BorderSide(color: Colors.black26)),
+              //       labelStyle: StyleManager.regularBlack(fontSize: 16),
+              //     ),
+              //   ),
+              // ),
               SizedBox(
                 height: 30,
               ),
@@ -89,3 +71,4 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+

@@ -5,14 +5,14 @@ import 'package:phone_tech_london/features/models/edit_model_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:phone_tech_london/features/service/service_detail_screen.dart';
 import 'package:get/get.dart';
-import '../../controllers/service_detail_controller.dart';
-import '../../utils/app_colors.dart';
-import '../../utils/style_manager.dart';
+import 'package:phone_tech_london/utils/app_colors.dart';
+import 'package:phone_tech_london/utils/style_manager.dart';
 
 class ModelTile extends StatelessWidget {
   final String name, id;
   final List<ServiceList> serviceData;
-  final ServiceDetailController controller = Get.put(ServiceDetailController());
+  final ServiceDetailController controller = Get.find();
+  // final ServiceDetailController controller = Get.put(ServiceDetailController());
 
   ModelTile({
     Key? key,

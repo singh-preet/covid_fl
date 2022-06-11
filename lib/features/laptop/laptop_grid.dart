@@ -1,18 +1,14 @@
 import 'package:phone_tech_london/data/models/response_model/brand_response.dart';
 import 'package:phone_tech_london/routes/app_routes.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
 import 'package:phone_tech_london/utils/style_manager.dart';
 import 'package:flutter/cupertino.dart';
-
-import 'package:phone_tech_london/data/models/response_model/brand_response.dart';
-import 'package:phone_tech_london/routes/app_routes.dart';
-import 'package:phone_tech_london/utils/style_manager.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CategoryList extends StatelessWidget {
+class LaptopList extends StatelessWidget {
   final BrandResponse? categoryResponse;
-  const CategoryList({
+  const LaptopList({
     Key? key,
     required this.categoryResponse,
   }) : super(key: key);
@@ -54,7 +50,7 @@ class CategoryList extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () => Get.toNamed(Routes.ADD_LAPTOP),
-                  child: Text("Add Laptop")),
+                  child: Text(StringConstant.add_laptop)),
             ],
           );
   }

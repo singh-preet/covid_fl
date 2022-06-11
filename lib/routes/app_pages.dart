@@ -35,5 +35,7 @@ class AppPages {
         name: Routes.ADD_LAPTOP,
         page: () => AddLaptop(),
         binding: AddLaptopBinding()),
+
+
   ];
 }

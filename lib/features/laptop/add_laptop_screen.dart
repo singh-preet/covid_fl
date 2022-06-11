@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_crop/image_crop.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
 
 class AddLaptop extends StatefulWidget {
   const AddLaptop({Key? key}) : super(key: key);
@@ -21,12 +22,12 @@ class _AddLaptopState extends State<AddLaptop> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(title: Text("Add Laptop")),
+      appBar: AppBar(title: Text(StringConstant.add_laptop)),
       body: Column(
         children: [
           TextFormField(
             decoration: InputDecoration(
-              label: Text("Brand"),
+              label: Text(StringConstant.brand),
             ),
           ),
           _sample == null

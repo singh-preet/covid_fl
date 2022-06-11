@@ -2,6 +2,7 @@ import 'package:phone_tech_london/data/models/response_model/brand_response.dart
 import 'package:phone_tech_london/features/brand_phones/brand_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:phone_tech_london/utils/string_constant.dart';
 
 class BrandListView extends StatelessWidget {
   final BrandResponse? data;
@@ -30,7 +31,7 @@ class BrandListView extends StatelessWidget {
                       );
                     }),
               ),
-              ElevatedButton(onPressed: () {}, child: Text("New Brand")),
+              ElevatedButton(onPressed: () {}, child: Text(StringConstant.new_brand)),
             ],
           );
   }
