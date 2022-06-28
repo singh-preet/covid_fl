@@ -1,7 +1,7 @@
 import 'package:phone_tech_london/data/models/response_model/order_response.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:phone_tech_london/features/_widgets/service_dropdown.dart';
+import 'package:phone_tech_london/features/_widgets/text_field.dart';
 import 'package:phone_tech_london/utils/string_constant.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
@@ -32,8 +32,8 @@ class OrderTile extends StatelessWidget {
                         ],
                       ),
                       content: Container(
-                        width: 200,
-                        height: 150,
+                        width: 250,
+                        height: 250,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -49,20 +49,33 @@ class OrderTile extends StatelessWidget {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(data.services[index].title),
-                                          Text("${StringConstant.GBP}${data.services[index].amount}", textAlign: TextAlign.right),
+                                          Text(
+                                              "${StringConstant.GBP}${data.services[index].amount}",
+                                              textAlign: TextAlign.right),
                                         ],
                                       ),
                                     )),
                             Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text("Total"),
-                                Text("${StringConstant.GBP}${data.totalAmount}"),
+                                Text(
+                                    "${StringConstant.GBP}${data.totalAmount}"),
                               ],
                             ),
-                            ServiceDropDown( isAddService: false,)
+                            Text("Add Service"),
+                            CustomTextField(
+                                controller: TextEditingController(),
+                                labelText: StringConstant.service_name,
+                                keyboardType: TextInputType.text),
+                            CustomTextField(
+                                controller: TextEditingController(),
+                                labelText: StringConstant.amount,
+                                keyboardType: TextInputType.number),
+
+
+
                           ],
                         ),
                       ),
@@ -71,7 +84,11 @@ class OrderTile extends StatelessWidget {
           leading: Image.network(
               "https://ebillplus.com/phonetech/public/assets/web/img/brands/google.png"),
           title: Text(data.userName),
-          subtitle: Text(data.userEmail),
+          subtitle: GestureDetector(
+              onTap: (){
+
+              },
+              child: Text("Send Invoice")),
           trailing: IconButton(
             onPressed: () {
               UrlLauncher.launch("tel://" + data.userMobile);

@@ -50,27 +50,7 @@ class GenerateInvoiceController extends GetxController {
     update();
   }
 
-  stepTapped(int step) {
-    print("Step tapped");
-    print(step);
-    print(currentStep.value);
-    currentStep.value = step;
-    update();
-  }
 
-  onStepContinue() {
-    // if (currentStep.value < 2) {
-      currentStep.value += 1;
-      update();
-    // }
-  }
-
-  onStepCancel() {
-    // if (currentStep.value > 0) {
-      currentStep.value -= 1;
-      update();
-    // }
-  }
 
   @override
   void dispose() {

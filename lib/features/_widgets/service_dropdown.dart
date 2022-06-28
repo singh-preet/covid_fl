@@ -7,19 +7,16 @@ import 'package:phone_tech_london/routes/app_routes.dart';
 import 'package:phone_tech_london/utils/string_constant.dart';
 
 class ServiceDropDown extends StatelessWidget {
-  // const
-  ServiceDropDown({
+   ServiceDropDown({
     Key? key,
     // required this.serviceDetailController,
-     this.modelId, required this.isAddService,  this.categoryId, this.orderId
+     this.modelId, required this.isAddService, required this.categoryId,
   }) : super(key: key);
-
 
   final ServiceDetailController serviceDetailController = Get.find();
   final String? modelId;
   final bool isAddService;
   final String? categoryId;
-  final String? orderId;
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +44,6 @@ class ServiceDropDown extends StatelessWidget {
                     message: _.message, backgroundColor: Colors.red);
               }
             });
-          }
-          else{
-            serviceDetailController.addServiceToOrder(orderId: orderId!);
           }
 
         },

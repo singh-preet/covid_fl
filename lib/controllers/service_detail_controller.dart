@@ -66,14 +66,14 @@ class ServiceDetailController extends GetxController {
     return res;
   }
 
-  Future<UpdateResponse> addServiceToOrder({required String orderId}) async {
-    UpdateResponse res = await HttpService.addServiceToOrder({
-      "userId": AppPreferences.getString(AppPreferences.userId),
-      "appId": AppPreferences.getString(AppPreferences.appId),
-      "orderId": orderId
-    });
-    return res;
-  }
+  // Future<UpdateResponse> addServiceToOrder({required String orderId}) async {
+  //   UpdateResponse res = await HttpService.addServiceToOrder({
+  //     "userId": AppPreferences.getString(AppPreferences.userId),
+  //     "appId": AppPreferences.getString(AppPreferences.appId),
+  //     "orderId": orderId
+  //   });
+  //   return res;
+  // }
 }
 
 class ServiceDropDownModel {
