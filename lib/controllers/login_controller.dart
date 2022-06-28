@@ -13,15 +13,6 @@ class LoginController extends GetxController {
   TextEditingController password = TextEditingController();
 
   onLoginButtonPress() async {
-    // var data = await loginRepository
-    //     .login({"email": email.text, "password": password.text});
-    // data.fold((l) =>
-    //     Get.rawSnackbar(message: l.errorMsg)
-    //     , (r) {
-    //   AppPreferences.setString("appId", r.appId);
-    //   AppPreferences.setString("userId", r.userId);
-    //   Get.offAndToNamed(Routes.HOME);
-    // });
     LoginResponse data = await HttpService.login(
         {"email": email.text, "password": password.text});
     if (data.status == 200) {

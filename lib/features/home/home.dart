@@ -20,9 +20,10 @@ class Home extends StatelessWidget {
       controller.getHomePageData();
     }, builder: (controller) {
       return DefaultTabController(
-        length: 5,
+        length: 4,
         initialIndex: 0,
         child: Scaffold(
+          // resizeToAvoidBottomInset: false,
           backgroundColor: AppColors.backgroundColor,
           appBar: AppBar(
             leading: Padding(
@@ -45,8 +46,10 @@ class Home extends StatelessWidget {
             ),
             backgroundColor: AppColors.white,
             bottom: TabBar(
-              labelColor: AppColors.lightOrange,
+              labelColor: AppColors.black,
               tabs: controller.tabs,
+              // indicatorColor: Colors.black,
+              unselectedLabelColor: AppColors.lightOrange,
             ),
           ),
           body: TabBarView(
@@ -54,7 +57,6 @@ class Home extends StatelessWidget {
               BrandListView(data: controller.brands),
               TabList(tabResponse: controller.tablets),
               LaptopList(categoryResponse: controller.laptop),
-              GenerateInvoice(),
               Orders(data: controller.orders),
             ],
           ),

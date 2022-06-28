@@ -2,9 +2,11 @@ import 'package:phone_tech_london/bindings/add_laptop_binding.dart';
 import 'package:phone_tech_london/bindings/api_service_binding.dart';
 import 'package:phone_tech_london/bindings/dio_binding.dart';
 import 'package:phone_tech_london/bindings/home_binding.dart';
+import 'package:phone_tech_london/bindings/invoice_binding.dart';
 import 'package:phone_tech_london/bindings/login_binding.dart';
 import 'package:phone_tech_london/bindings/splash_binding.dart';
 import 'package:phone_tech_london/features/home/home.dart';
+import 'package:phone_tech_london/features/invoice/generate_invoice.dart';
 import 'package:phone_tech_london/features/laptop/add_laptop_screen.dart';
 import 'package:phone_tech_london/features/login_screen/login_screen.dart';
 import 'package:phone_tech_london/features/splash_screen/splash_screen.dart';
@@ -35,7 +37,6 @@ class AppPages {
         name: Routes.ADD_LAPTOP,
         page: () => AddLaptop(),
         binding: AddLaptopBinding()),
-
-
+    GetPage(name: Routes.GENERATE_ORDER, page: () => GenerateInvoice(), binding: InvoiceBinding())
   ];
 }

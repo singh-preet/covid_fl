@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:phone_tech_london/data/models/response_model/add_model_response.dart';
+import 'package:phone_tech_london/data/models/response_model/add_order_id_response.dart';
 import 'package:phone_tech_london/data/models/response_model/brand_response.dart';
 import 'package:phone_tech_london/data/models/response_model/category_response.dart';
 import 'package:phone_tech_london/data/models/response_model/login_response.dart';
@@ -45,7 +46,6 @@ class HttpService {
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.fetchBrands),
         body: body);
     final value = BrandResponse.fromJson(jsonDecode(_result.body));
-
     return value;
   }
 
@@ -104,4 +104,25 @@ class HttpService {
     final value = ServiceListModel.fromJson(jsonDecode(_result.body));
     return value;
   }
+
+  static Future<AddOrderIdResponse> addOrderId(Map<String, dynamic> body) async {
+    Response _result = await http.post(
+        Uri.parse(NetworkProperties.baseUrl + UrlConstants.addOrderId),
+        body: body);
+    final value = AddOrderIdResponse.fromJson(jsonDecode(_result.body));
+    return value;
+  }
+
+  static Future<UpdateResponse> addServiceToOrder(Map<String, dynamic> body) async {
+    Response _result = await http.post(
+        Uri.parse(NetworkProperties.baseUrl + UrlConstants.addServiceToOrderId),
+        body: body);
+    final value = UpdateResponse.fromJson(jsonDecode(_result.body));
+    return value;
+  }
+
+
+
+
+
 }

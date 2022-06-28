@@ -28,6 +28,7 @@ class _AppState extends State<App> {
       getPages: AppPages.pages,
       title: StringConstant.APP_NAME,
       theme: ThemeData(
+        appBarTheme: AppBarTheme(backgroundColor: AppColors.black),
           primarySwatch: Colors.blue,
           accentColor: AppColors.backgroundColor,
           backgroundColor: AppColors.backgroundColor),

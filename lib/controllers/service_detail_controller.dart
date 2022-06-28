@@ -16,13 +16,15 @@ class ServiceDetailController extends GetxController {
       "userId": AppPreferences.getString(AppPreferences.userId),
       "appId": AppPreferences.getString(AppPreferences.appId)
     });
+    print("fetchServiceList : $data");
   }
 
-  List<DropdownMenuItem> getServiceDropDown(int categoryId) {
-    serviceListFromApi =
-        data.data
-            // .where((element) => element.id == categoryId).toList()
-    ;
+  List<DropdownMenuItem> getServiceDropDown(String? categoryId) {
+    serviceListFromApi = categoryId != null
+        ? data.data
+            .where((element) => element.serviceCategory == categoryId)
+            .toList()
+        : data.data.toList();
     items = serviceListFromApi
         .map((e) => DropdownMenuItem(
               child: Text(e.title),
@@ -60,6 +62,15 @@ class ServiceDetailController extends GetxController {
       "amount": amount,
       "serviceId": id,
       "modelId": modelId
+    });
+    return res;
+  }
+
+  Future<UpdateResponse> addServiceToOrder({required String orderId}) async {
+    UpdateResponse res = await HttpService.addServiceToOrder({
+      "userId": AppPreferences.getString(AppPreferences.userId),
+      "appId": AppPreferences.getString(AppPreferences.appId),
+      "orderId": orderId
     });
     return res;
   }

@@ -2,6 +2,7 @@
     package="com.example.covid_fl">
     <uses-permission android:name="android.permission.INTERNET"/>
 
+
     <application
         android:label="Phone Tech London"
         android:icon="@mipmap/ic_launcher">

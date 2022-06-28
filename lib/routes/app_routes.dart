@@ -8,4 +8,5 @@ class Routes {
   static const PRODUCT_LIST = '/product_list';
   static const ADD_LAPTOP = '/add_laptop';
   static const ADD_TABLET = '/add_tablet';
+  static const GENERATE_ORDER = '/generate_order';
 }

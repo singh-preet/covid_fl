@@ -24,14 +24,12 @@ class HomeController extends GetxController {
       child: Text(StringConstant.LAPTOPS),
     ),
     Tab(
-      icon: Text(StringConstant.INVOICE),
-    ),
-    Tab(
       icon: Text(StringConstant.ORDERS),
     )
   ];
 
   getHomePageData() async {
+    print("Homepage");
     laptop = await HttpService.fetchBrands({
       "categoryId": "2",
       "userId": AppPreferences.getString(AppPreferences.userId),
@@ -47,11 +45,11 @@ class HomeController extends GetxController {
       "userId": AppPreferences.getString(AppPreferences.userId),
       "appId": AppPreferences.getString(AppPreferences.appId)
     });
-
     orders = await HttpService.fetchOrders({
       "userId": AppPreferences.getString(AppPreferences.userId),
       "appId": AppPreferences.getString(AppPreferences.appId)
     });
+    print("orders : $orders");
     update();
   }
 }

@@ -30,10 +30,10 @@ class ServiceDetailScreen extends StatelessWidget {
       body: Column(
         children: [
           ServiceDropDown(
-              serviceDetailController: serviceDetailController,
+              // serviceDetailController: serviceDetailController,
               modelId: modelId,
               isAddService: true,
-              categoryId: 1),
+              categoryId: "1"),
           Expanded(
             child: ListView.builder(
                 physics: ScrollPhysics(),

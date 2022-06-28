@@ -11,4 +11,15 @@ class UrlConstants {
   static const String addModel = "add-model";
   static const String editBrand = "edit-brand";
   static const String fetchServiceList = "fetch-service-list";
+
+  static const String addOrderId = "generate-offline-bill";
+  static const String addServiceToOrderId = "add-service-to-new-orderId";
+
+
+  static const String fetchOrderDetails = "order-details";
+  static const String deleteServiceFromOrder = "delete-service-fromOrder";
+  static const String sendInvoice = "order-bill-send";
+
+
+
 }

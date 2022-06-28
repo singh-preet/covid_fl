@@ -31,6 +31,8 @@ class Data {
   late int id;
   late String title;
   late String status;
+  late String serviceCategory;
+
 
   Data({required this.id,required  this.title,required  this.status});
 
@@ -38,6 +40,7 @@ class Data {
     id = json['id'];
     title = json['title'];
     status = json['status'];
+    serviceCategory = json['serviceCategory'];
   }
 
   Map<String, dynamic> toJson() {
@@ -45,6 +48,7 @@ class Data {
     data['id'] = this.id;
     data['title'] = this.title;
     data['status'] = this.status;
+    data['serviceCategory'] = this.serviceCategory;
     return data;
   }
 }

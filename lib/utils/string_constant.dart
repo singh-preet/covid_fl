@@ -21,6 +21,8 @@ class StringConstant {
   static const String new_brand = "New Brand";
   static const String try_again = "Please try again";
   static const String model_name = "Model Name";
+  static const String service_name = "Service Name";
+  static const String amount = "Amount";
   static const String brand_name = "Brand Name";
   static const String product_name = "Product Name";
   static const String add_laptop = "Add Laptop";
@@ -37,5 +39,6 @@ class StringConstant {
   static const String new_tablet = "New Tablet";
   static const String add_tablet = "Add Tablet";
   static const String add_new_product = "Add new Product";
+  static const String phoneCopy = "Phone number copied";
 
 }

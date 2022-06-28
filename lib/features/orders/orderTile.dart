@@ -1,6 +1,7 @@
 import 'package:phone_tech_london/data/models/response_model/order_response.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:phone_tech_london/features/_widgets/service_dropdown.dart';
 import 'package:phone_tech_london/utils/string_constant.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
@@ -24,20 +25,20 @@ class OrderTile extends StatelessWidget {
                       title: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(data.modelId),
+                          Text(data.orderId),
                           IconButton(
                               icon: Icon(Icons.clear),
                               onPressed: () => Get.back())
                         ],
                       ),
-                      content: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Container(
-                            width: 200,
-                            height: 150,
-                            child: ListView.builder(
+                      content: Container(
+                        width: 200,
+                        height: 150,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            ListView.builder(
                                 shrinkWrap: true,
                                 itemCount: data.services.length,
                                 itemBuilder: (context, index) => Padding(
@@ -48,15 +49,22 @@ class OrderTile extends StatelessWidget {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(data.services[index].title),
-
                                           Text("${StringConstant.GBP}${data.services[index].amount}", textAlign: TextAlign.right),
                                         ],
                                       ),
                                     )),
-                          ),
-                          Divider(),
-                          Text("${StringConstant.GBP}${data.totalAmount}")
-                        ],
+                            Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment.spaceBetween,
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text("Total"),
+                                Text("${StringConstant.GBP}${data.totalAmount}"),
+                              ],
+                            ),
+                            ServiceDropDown( isAddService: false,)
+                          ],
+                        ),
                       ),
                     ));
           },
