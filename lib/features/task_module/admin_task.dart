@@ -1,26 +1,25 @@
 import 'dart:convert';
-
+import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:phone_tech_london/features/task_module/task_model.dart';
 
-void main() {
-  runApp(const MyAppl());
-}
-class MyAppl extends StatelessWidget {
-  const MyAppl({Key? key}) : super(key: key);
+
+class MyApp1 extends StatelessWidget {
+  const MyApp1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Task1(),
+      home: TaskAssignmentScreen(),
     );
   }
 }
 
-class Task1 extends StatefulWidget {
-  const Task1({Key? key}) : super(key: key);
+class TaskAssignmentScreen extends StatefulWidget {
+  const TaskAssignmentScreen({Key? key}) : super(key: key);
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -32,7 +31,7 @@ Future<dynamic>assignTask(Map<String,dynamic> body)async{
   print(value);
   return value;
 }
-class _MyAppState extends State<Task1> {
+class _MyAppState extends State<TaskAssignmentScreen> {
   TextEditingController titleController=TextEditingController();
   TextEditingController textEditingController=TextEditingController();
   TextEditingController descriptionController=TextEditingController();
@@ -42,48 +41,54 @@ class _MyAppState extends State<Task1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        titleSpacing: -10,
+        backgroundColor: Colors.teal,
+        elevation: 0,
+        title: Text('Raman'),
+        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () { },),),
       backgroundColor: Colors.teal,
       body: SafeArea(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Icon(Icons.arrow_back,color: Colors.white,),
-                SizedBox(width: 10,),
-                Text('Raman',style: TextStyle(fontSize: 25,color: Colors.white),)
-              ],
-            ),
             Padding(
-              padding: const EdgeInsets.only(top: 45,left: 15,right: 15),
+              padding: const EdgeInsets.only(top: 25,left: 15,right: 15),
               child: NewWidget(text: 'Title', height: 35, maxLines: 1, controller: titleController,),
             ),
             Padding(
-                padding: const EdgeInsets.only(top: 25,left: 15,right: 15),
-                child:Container(height: 40,
-                    color: Colors.white,
-                    child:TextFormField(
-                      controller: textEditingController,
-                      decoration:  InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.zero
+                padding: const EdgeInsets.only(top: 15,left: 15,right: 15),
+                child:Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Due date',style:TextStyle(color: Colors.white,fontSize: 12)),
+                    SizedBox(height: 10,),
+                    Container(height: 40,
+                        color: Colors.white,
+                        child:TextFormField(
+                          controller: textEditingController,
+                          decoration:  InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.zero
+                              ),
+                              suffixIcon: IconButton(
+                                icon:Icon(Icons.date_range),
+                                onPressed: () async{ DateTime? chosenDate= await showDatePicker(
+                                    context: context, initialDate: date,
+                                    firstDate: DateTime(2000),
+                                    lastDate: DateTime(2023));
+                                 dateX=DateFormat().add_yMMMEd().format(chosenDate!);
+                                textEditingController.text=dateX!;
+                                setState(() {
+                                  textEditingController.text=dateX!;
+                                });
+                                },)
                           ),
-                          suffixIcon: IconButton(
-                            icon:Icon(Icons.date_range),
-                            onPressed: () async{ DateTime? chosenDate= await showDatePicker(
-                                context: context, initialDate: date,
-                                firstDate: DateTime(2000),
-                                lastDate: DateTime(2023));
-                             dateX=DateFormat().add_yMMMEd().format(chosenDate!);
-                            textEditingController.text=dateX!;
-                            setState(() {
-
-                            });
-                            },)
-                      ),
-                    ))
+                        )),
+                  ],
+                )
             ),
             Padding(
-                padding: const EdgeInsets.only(top: 25,left: 15,right: 15),
+                padding: const EdgeInsets.only(top: 20,left: 15,right: 15),
                 child: NewWidget(text: 'Description', height: 145, maxLines: 7, controller: descriptionController,)
             ),
             Padding(
@@ -101,14 +106,12 @@ class _MyAppState extends State<Task1> {
                   final String userId='11';
                   final body=await TaskModel(
                       userId: userId, duedate: duedate,title: title,assignTo: assignedTo,description: description).toServer();
-                  assignTask({
-                    'title':'asd',
-                    'description' : 'asd',
+                 var status= await assignTask({
+                    'title':titleController.text,
+                    'description' : descriptionController.text,
                     'duedate':'2022-05-05',
                   'userId':'11',
                   'assignTo':'11'
-
-
                   });
                 },),
               ),
@@ -136,9 +139,15 @@ class NewWidget extends StatelessWidget {
         Text(text,style:TextStyle(color: Colors.white,fontSize: 12)),
         SizedBox(height: 10,),
         Container(width: double.infinity,height: height,color: Colors.white,
-          child: TextFormField(
-            controller: controller,
-            maxLines: maxLines,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  border: InputBorder.none
+              ),
+              controller: controller,
+              maxLines: maxLines,
+            ),
           ),
         )
       ],
