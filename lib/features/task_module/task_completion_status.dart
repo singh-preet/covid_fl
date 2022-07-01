@@ -1,11 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 void main() {
-  runApp(const MyApp3());
+  runApp( MyApp3());
 }
 class MyApp3 extends StatelessWidget {
-  const MyApp3({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,6 +21,20 @@ class TaskCompletionStatusScreen extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
+Future<dynamic>assignTask(Map<String,dynamic> body)async{
+  http.Response _response=await http.post(
+      Uri.parse('https://www.keepconnected.duckdns.org/task/tasks/tasklist.php'),
+      body:body);
+  var jsonDecodedValue= jsonDecode(_response.body);
+  var value=jsonDecodedValue['data'][0];
+   taskTitle=value['title'];
+   status=value['status'];
+  print(value);
+
+}
+String? taskTitle;
+String? status;
+
 class TaskStatus{
   static taskCompleted(){
     return Text('Completed',style: TextStyle(color: Colors.green,fontWeight: FontWeight.w700),);}
@@ -28,11 +43,17 @@ class TaskStatus{
   }
 }
 class _MyAppState extends State<TaskCompletionStatusScreen> {
-
+   @override
+  void initState() {
+    super.initState();
+    assignTask({
+      'userId':'12',
+      'type':'2'
+    });
+  }
   @override
   Widget build(BuildContext context) {
     int  counter=2;
-    String title='Title will appear here';
     String subtitle='29-07-2022';
     bool isTaskCompleted=false;
     Text status=isTaskCompleted?TaskStatus.taskCompleted():TaskStatus.taskPending();
@@ -57,7 +78,7 @@ class _MyAppState extends State<TaskCompletionStatusScreen> {
                 borderRadius: BorderRadius.circular(5)
               ),
               tileColor: Colors.white,
-              title: Text(title),
+              title: Text(taskTitle??'Default Title'),
               trailing:status ,
               subtitle: Text(subtitle),
             ),
@@ -67,7 +88,7 @@ class _MyAppState extends State<TaskCompletionStatusScreen> {
                   borderRadius: BorderRadius.circular(5)
               ),
               tileColor: Colors.white,
-              title: Text(title),
+              title: Text(taskTitle??'Default Title'),
               trailing:TaskStatus.taskCompleted() ,/* The value of this property will be set "status" later,
                                                    the current value is simply a temporary placeholder to show "completed"
                                                    in UI.*/

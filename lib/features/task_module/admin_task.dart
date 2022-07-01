@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -25,7 +24,8 @@ class TaskAssignmentScreen extends StatefulWidget {
 }
 Future<dynamic>assignTask(Map<String,dynamic> body)async{
   print(body);
-  http.Response _response=await http.post(Uri.parse('https://www.keepconnected.duckdns.org/task/tasks/createtask.php'),
+  http.Response _response=await http.post(
+      Uri.parse('https://www.keepconnected.duckdns.org/task/tasks/tasklist.php'),
   body:body);
   var value= jsonDecode(_response.body);
   print(value);
@@ -37,6 +37,7 @@ class _MyAppState extends State<TaskAssignmentScreen> {
   TextEditingController descriptionController=TextEditingController();
   DateTime date=DateTime(2022,06,29);
   String? dateX;
+
 
   @override
   Widget build(BuildContext context) {
