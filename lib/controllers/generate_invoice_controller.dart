@@ -45,6 +45,15 @@ class GenerateInvoiceController extends GetxController {
     return data;
   }
 
+  sendInvoice(String orderId) async{
+    await HttpService.sendInvoice({
+      "userId": AppPreferences.getString(AppPreferences.userId),
+      "appId": AppPreferences.getString(AppPreferences.appId),
+      'orderId': orderId,
+    });
+
+  }
+
   updateCategory(String userCategory) {
     category = userCategory;
     update();
