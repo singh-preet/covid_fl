@@ -49,7 +49,6 @@ class HomeController extends GetxController {
       "userId": AppPreferences.getString(AppPreferences.userId),
       "appId": AppPreferences.getString(AppPreferences.appId)
     });
-    print("orders : $orders");
     update();
   }
 }

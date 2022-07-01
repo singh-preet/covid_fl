@@ -114,13 +114,22 @@ class HttpService {
   }
 
   static Future<UpdateResponse> addServiceToOrder(Map<String, dynamic> body) async {
-    print(NetworkProperties.baseUrl + UrlConstants.addServiceToOrderId);
     Response _result = await http.post(
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.addServiceToOrderId),
         body: body);
-    print(jsonDecode(_result.body));
     final value = UpdateResponse.fromJson(jsonDecode(_result.body));
     return value;
+  }
+
+  static  sendInvoice(Map<String, dynamic> body) async {
+    print(body);
+    print(NetworkProperties.baseUrl + UrlConstants.sendInvoice);
+    Response _result = await http.post(
+        Uri.parse(NetworkProperties.baseUrl + UrlConstants.sendInvoice),
+        body: body);
+    print(jsonDecode(_result.body));
+    // final value = UpdateResponse.fromJson(jsonDecode(_result.body));
+    // return value;
   }
 
 
