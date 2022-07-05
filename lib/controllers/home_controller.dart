@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:phone_tech_london/data/models/response_model/brand_response.dart';
 import 'package:phone_tech_london/data/models/response_model/order_response.dart';
+import 'package:phone_tech_london/data/models/response_model/update_response.dart';
 import 'package:phone_tech_london/data/network/http_service.dart';
 import 'package:phone_tech_london/utils/app_preferences.dart';
 import 'package:phone_tech_london/utils/string_constant.dart';
@@ -22,6 +23,9 @@ class HomeController extends GetxController {
     ),
     Tab(
       child: Text(StringConstant.LAPTOPS),
+    ),
+    Tab(
+      child: Text(StringConstant.COUPON),
     ),
     Tab(
       icon: Text(StringConstant.ORDERS),
@@ -49,6 +53,24 @@ class HomeController extends GetxController {
       "userId": AppPreferences.getString(AppPreferences.userId),
       "appId": AppPreferences.getString(AppPreferences.appId)
     });
+    update();
+  }
+
+  addCoupon() async {
+    UpdateResponse res= await HttpService.addCoupon({
+      'userId': 'FGAHSF65S65655',
+      'appId': 'APPmFGAHSF65S65655',
+      'counpon': 'ABC1000',
+      'greaterThen': '100',
+      'valueData': '10',
+      'disType': '1'
+    });
+
+  }
+  String category = "";
+
+  updateCategory(String userCategory) {
+    category = userCategory;
     update();
   }
 }

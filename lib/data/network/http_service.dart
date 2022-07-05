@@ -133,6 +133,13 @@ class HttpService {
   }
 
 
+  static Future<UpdateResponse> addCoupon(Map<String, dynamic> body) async {
+    Response _result = await http.post(
+        Uri.parse(NetworkProperties.baseUrl + UrlConstants.addCoupon),
+        body: body);
+    final value = UpdateResponse.fromJson(jsonDecode(_result.body));
+    return value;
+  }
 
 
 

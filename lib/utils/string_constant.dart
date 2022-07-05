@@ -15,6 +15,7 @@ class StringConstant {
   static const String LAPTOPS = "Laptop";
   static const String INVOICE = "Invoice";
   static const String ORDERS = "Orders";
+  static const String COUPON = "Coupon";
 
   ///Text
   static const String select_service = "Select a service to add";

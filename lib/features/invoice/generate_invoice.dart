@@ -8,7 +8,6 @@ import 'package:phone_tech_london/data/models/response_model/update_response.dar
 import 'package:phone_tech_london/features/_widgets/service_dropdown.dart';
 import 'package:phone_tech_london/features/_widgets/text_field.dart';
 import 'package:phone_tech_london/utils/app_colors.dart';
-import 'package:phone_tech_london/utils/categories.dart';
 import 'package:phone_tech_london/utils/string_constant.dart';
 
 class GenerateInvoice extends StatelessWidget {

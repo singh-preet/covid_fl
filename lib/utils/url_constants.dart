@@ -19,6 +19,7 @@ class UrlConstants {
   static const String fetchOrderDetails = "order-details";
   static const String deleteServiceFromOrder = "delete-service-fromOrder";
   static const String sendInvoice = "order-bill-send";
+  static const String addCoupon = "coupons/create";
 
 
 

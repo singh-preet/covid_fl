@@ -1,1 +1,1 @@
-enum Categories{PHONE, LAPTOP, CATEGORY}
+enum Categories{FLAT, PERCENTAGE}
