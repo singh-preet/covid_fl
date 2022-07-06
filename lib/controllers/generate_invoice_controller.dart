@@ -61,8 +61,13 @@ class GenerateInvoiceController extends GetxController {
 
 
 
-  @override
-  void dispose() {
+  void clear() {
+    // phoneController.clear();
+    // fNameController.clear();
+    // lNameController.clear();
+    // emailController.clear();
+    // modelNameController.clear();
+    // amountController.clear();
     phoneController.dispose();
     fNameController.dispose();
     lNameController.dispose();

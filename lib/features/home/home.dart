@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:phone_tech_london/controllers/home_controller.dart';
+import 'package:phone_tech_london/data/models/response_model/update_response.dart';
 import 'package:phone_tech_london/features/_widgets/border_container.dart';
 import 'package:phone_tech_london/features/_widgets/text_field.dart';
 import 'package:phone_tech_london/features/brand_phones/brand_list_widget.dart';
@@ -20,7 +21,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(initState: (_) {
-      controller.getHomePageData();
+      controller.getHomePageData(getLaptop: true, getOrder: true, getPhone: true, getTab: true);
     }, builder: (controller) {
       return DefaultTabController(
         length: 5,
@@ -89,14 +90,14 @@ class AddCoupon extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: 2,
                 itemBuilder: (context, index) => GestureDetector(
-                      onTap: ()=>homeController.updateCategory(Categories.values[index].name),
+                      onTap: ()=>homeController.updateCategory(Categories.values[index]),
                       child: Container(
                           padding: EdgeInsets.symmetric(horizontal: 8),
                           margin: EdgeInsets.all(8),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: homeController.category ==
-                                      Categories.values[index].name
+                                      Categories.values[index]
                                   ? AppColors.lightOrange
                                   : AppColors.greyColor,
                               borderRadius: BorderRadius.circular(8)),
@@ -106,7 +107,7 @@ class AddCoupon extends StatelessWidget {
           CustomTextField(
             keyboardType: TextInputType.text,
             labelText: 'Coupon',
-            controller: TextEditingController(),
+            controller: homeController.coupon,
           ),
           Row(
             children: [
@@ -114,22 +115,23 @@ class AddCoupon extends StatelessWidget {
                 child: CustomTextField(
                   keyboardType: TextInputType.number,
                   labelText: 'Greater Than',
-                  controller: TextEditingController(),
+                  controller: homeController.greaterThan,
                 ),
               ),
               Expanded(
                 child: CustomTextField(
                   keyboardType: TextInputType.number,
                   labelText: 'Value',
-                  controller: TextEditingController(),
+                  controller: homeController.value,
                 ),
               ),
             ],
           ),
           SizedBox(height: 20,),
           MaterialButton(
-            onPressed: () {
-              homeController.addCoupon();
+            onPressed: () async {
+              UpdateResponse res= await homeController.addCoupon();
+                Get.rawSnackbar(message: res.message, backgroundColor: res.status==200?Colors.green:Colors.red);
             },
             color: AppColors.lightOrange,
             child: Text("Add Order"),

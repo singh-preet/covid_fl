@@ -5,15 +5,13 @@ import 'package:get/get.dart';
 import 'package:phone_tech_london/features/_widgets/text_field.dart';
 import 'package:phone_tech_london/utils/app_colors.dart';
 import 'package:phone_tech_london/utils/string_constant.dart';
+import 'package:phone_tech_london/utils/style_manager.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 class OrderTile extends StatelessWidget {
   final GenerateInvoiceController controller;
-  OrderTile({
-    Key? key,
-    required this.data,
-     required this.controller
-  }) : super(key: key);
+  OrderTile({Key? key, required this.data, required this.controller})
+      : super(key: key);
 
   final Data data;
 
@@ -41,21 +39,20 @@ class OrderTile extends StatelessWidget {
                         height: 250,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             ListView.builder(
                                 shrinkWrap: true,
                                 itemCount: data.services.length,
-                                itemBuilder: (context, index) => Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        mainAxisSize: MainAxisSize.max,
+                                itemBuilder: (context, index) => Chip(
+                                      backgroundColor: AppColors.lightOrange,
+                                      label: Row(
+                                        mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Text(data.services[index].title),
                                           Text(
-                                              "${StringConstant.GBP}${data.services[index].amount}",
+                                              "  -  ${StringConstant.GBP}${data.services[index].amount}",
                                               textAlign: TextAlign.right),
                                         ],
                                       ),
@@ -64,23 +61,18 @@ class OrderTile extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Text("Total"),
                                 Text(
-                                    "${StringConstant.GBP}${data.totalAmount}"),
+                                  "Total :  ${StringConstant.GBP}${data.totalAmount}",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                MaterialButton(
+                                  color: AppColors.lightOrange,
+                                  onPressed: () =>
+                                      controller.sendInvoice(data.orderId),
+                                  child: Text("Send Invoice"),
+                                ),
                               ],
                             ),
-                            // Text("Add Service"),
-                            // CustomTextField(
-                            //     controller: TextEditingController(),
-                            //     labelText: StringConstant.service_name,
-                            //     keyboardType: TextInputType.text),
-                            // CustomTextField(
-                            //     controller: TextEditingController(),
-                            //     labelText: StringConstant.amount,
-                            //     keyboardType: TextInputType.number),
-
-
-
                           ],
                         ),
                       ),
@@ -104,7 +96,38 @@ class OrderTile extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {
-                  controller.sendInvoice(data.orderId);
+                  print(data.orderId);
+                  Get.bottomSheet(Container(
+                    height: 250,
+                    color: Colors.white,
+                    child: Column(
+                      crossAxisAlignment:CrossAxisAlignment.start ,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Add Service to ${data.orderId}", style: StyleManager.bold()),
+                        ),
+                        CustomTextField(
+                            controller: TextEditingController(),
+                            labelText: StringConstant.service_name,
+                            keyboardType: TextInputType.text),
+                        CustomTextField(
+                            controller: TextEditingController(),
+                            labelText: StringConstant.amount,
+                            keyboardType: TextInputType.number),
+
+                        Row(
+                          children: [
+                            Expanded(child: Container()),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: MaterialButton(onPressed: (){},color: AppColors.lightOrange,child: Text("Add Service to Order"),),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ));
                 },
                 icon: Icon(
                   Icons.receipt_long,

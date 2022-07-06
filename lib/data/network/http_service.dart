@@ -62,6 +62,7 @@ class HttpService {
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.fetchOrders),
         body: body);
     final value = OrdersResponse.fromJson(jsonDecode(_result.body));
+    print(jsonDecode(_result.body));
     return value;
   }
 
@@ -134,6 +135,7 @@ class HttpService {
 
 
   static Future<UpdateResponse> addCoupon(Map<String, dynamic> body) async {
+    print(body);
     Response _result = await http.post(
         Uri.parse(NetworkProperties.baseUrl + UrlConstants.addCoupon),
         body: body);
