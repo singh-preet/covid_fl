@@ -16,8 +16,8 @@ class StyleManager {
         fontSize: fontSize ?? 17, color: color, fontWeight: FontWeight.bold);
   }
 
-  static TextStyle regularBlack({double? fontSize}) {
-    return TextStyle(fontSize: fontSize ?? 14, color: AppColors.black);
+  static TextStyle regularBlack({double? fontSize, Color? color}) {
+    return TextStyle(fontSize: fontSize ?? 14, color: color ?? AppColors.black);
   }
 
   static TextStyle regularWhite({double? fontSize}) {

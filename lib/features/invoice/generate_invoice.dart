@@ -51,7 +51,7 @@ class GenerateInvoice extends StatelessWidget {
                     controller: controller.modelNameController,
                     labelText: StringConstant.model_name,
                     keyboardType: TextInputType.text),
-                controller.orderId != null
+                controller.orderId != null && controller.orderId!.isNotEmpty
                     ? Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Container(

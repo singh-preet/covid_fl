@@ -35,6 +35,13 @@ class GenerateInvoiceController extends GetxController {
   }
 
   Future<UpdateResponse> addServiceToOrderId() async {
+    print({
+      "userId": AppPreferences.getString(AppPreferences.userId),
+      "appId": AppPreferences.getString(AppPreferences.appId),
+      'serviceName': serviceController.text,
+      'orderId': orderId,
+      'amount': amountController.text
+    });
     UpdateResponse data = await HttpService.addServiceToOrder({
       "userId": AppPreferences.getString(AppPreferences.userId),
       "appId": AppPreferences.getString(AppPreferences.appId),
@@ -42,24 +49,23 @@ class GenerateInvoiceController extends GetxController {
       'orderId': orderId,
       'amount': amountController.text
     });
+    orderId = '';
     return data;
   }
 
-  sendInvoice(String orderId) async{
-    await HttpService.sendInvoice({
+  Future<UpdateResponse> sendInvoice(String orderId) async {
+    UpdateResponse data = await HttpService.sendInvoice({
       "userId": AppPreferences.getString(AppPreferences.userId),
       "appId": AppPreferences.getString(AppPreferences.appId),
       'orderId': orderId,
     });
-
+    return data;
   }
 
   updateCategory(String userCategory) {
     category = userCategory;
     update();
   }
-
-
 
   void clear() {
     // phoneController.clear();

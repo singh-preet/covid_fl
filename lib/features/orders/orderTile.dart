@@ -1,7 +1,9 @@
 import 'package:phone_tech_london/controllers/generate_invoice_controller.dart';
+import 'package:phone_tech_london/controllers/home_controller.dart';
 import 'package:phone_tech_london/data/models/response_model/order_response.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:phone_tech_london/data/models/response_model/update_response.dart';
 import 'package:phone_tech_london/features/_widgets/text_field.dart';
 import 'package:phone_tech_london/utils/app_colors.dart';
 import 'package:phone_tech_london/utils/string_constant.dart';
@@ -42,21 +44,24 @@ class OrderTile extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: data.services.length,
-                                itemBuilder: (context, index) => Chip(
-                                      backgroundColor: AppColors.lightOrange,
-                                      label: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Text(data.services[index].title),
-                                          Text(
-                                              "  -  ${StringConstant.GBP}${data.services[index].amount}",
-                                              textAlign: TextAlign.right),
-                                        ],
-                                      ),
-                                    )),
+                            Expanded(
+                              child: ListView.builder(
+                                  shrinkWrap: true,
+                                  physics: ScrollPhysics(),
+                                  itemCount: data.services.length,
+                                  itemBuilder: (context, index) => Chip(
+                                        backgroundColor: AppColors.lightOrange,
+                                        label: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text(data.services[index].title),
+                                            Text(
+                                                "  -  ${StringConstant.GBP}${data.services[index].amount}",
+                                                textAlign: TextAlign.right),
+                                          ],
+                                        ),
+                                      )),
+                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               mainAxisSize: MainAxisSize.max,
@@ -67,8 +72,16 @@ class OrderTile extends StatelessWidget {
                                 ),
                                 MaterialButton(
                                   color: AppColors.lightOrange,
-                                  onPressed: () =>
-                                      controller.sendInvoice(data.orderId),
+                                  onPressed: () async {
+                                    UpdateResponse res= await controller.sendInvoice(data.orderId);
+                                    if(res.status==200){
+                                      Get.back();
+                                      Get.rawSnackbar(message: "Invoice Sent Successfully");
+                                    }else{
+                                      Get.rawSnackbar(message: res.message);
+                                    }
+                                  }
+                                      ,
                                   child: Text("Send Invoice"),
                                 ),
                               ],
@@ -101,27 +114,43 @@ class OrderTile extends StatelessWidget {
                     height: 250,
                     color: Colors.white,
                     child: Column(
-                      crossAxisAlignment:CrossAxisAlignment.start ,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text("Add Service to ${data.orderId}", style: StyleManager.bold()),
+                          child: Text("Add Service for ${data.userName}",
+                              style: StyleManager.bold()),
                         ),
                         CustomTextField(
-                            controller: TextEditingController(),
+                            controller: controller.serviceController,
                             labelText: StringConstant.service_name,
                             keyboardType: TextInputType.text),
                         CustomTextField(
-                            controller: TextEditingController(),
+                            controller: controller.amountController,
                             labelText: StringConstant.amount,
                             keyboardType: TextInputType.number),
-
                         Row(
                           children: [
                             Expanded(child: Container()),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: MaterialButton(onPressed: (){},color: AppColors.lightOrange,child: Text("Add Service to Order"),),
+                              child: MaterialButton(
+                                onPressed: () async {
+                                  controller.orderId=data.orderId;
+                                  UpdateResponse res =
+                                      await controller.addServiceToOrderId();
+                                  Get.rawSnackbar(message: res.message);
+                                  if (res.status == 200) {
+                                    HomeController homeController = Get.find();
+                                    homeController.getHomePageData(
+                                        getOrder: true);
+                                    controller.serviceController.clear();
+                                    controller.amountController.clear();
+                                  }
+                                },
+                                color: AppColors.lightOrange,
+                                child: Text("Add Service to Order"),
+                              ),
                             ),
                           ],
                         )

@@ -16,7 +16,6 @@ class ServiceDetailController extends GetxController {
       "userId": AppPreferences.getString(AppPreferences.userId),
       "appId": AppPreferences.getString(AppPreferences.appId)
     });
-    print("fetchServiceList : $data");
   }
 
   List<DropdownMenuItem> getServiceDropDown(String? categoryId) {
